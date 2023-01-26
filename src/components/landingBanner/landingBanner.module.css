@@ -1,0 +1,6 @@
+.carouselImg{
+    height: 70dvh;
+    
+    object-fit: cover;
+    object-position: center;
+}
