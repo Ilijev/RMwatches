@@ -11,19 +11,16 @@ export default function Navigation({}: Props) {
     <Navbar collapseOnSelect expand="md"  variant="dark" className="py-0 bg-dark-custom">
       <Container fluid>
         
-        <NavLink className={`navbar-brand logoStyle`} to="/"><img src={require("../images/rmLogoHorizontalBlack.jpg")} alt="RM logo" /></NavLink>
+        <NavLink className={`navbar-brand logoStyle`} to="/">
+          <img src={require("../images/rmLogoHorizontalBlack.jpg")} alt="RM logo" />
+        </NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav ">
-          <Nav className="me-auto">
-          
-          <NavLink className='nav-link text-white menu-hover' to="products">Products</NavLink>
-          <NavLink className='nav-link text-white menu-hover' to="service">Service</NavLink>
-          </Nav>
-          <Nav>
-            <NavLink className='nav-link text-white menu-hover' to="contact">Contact</NavLink>
-            <NavLink className="nav-link text-white menu-hover" to={"about"}>
-              About
-            </NavLink>
+        <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
+          <Nav className="text-center">
+            <NavLink className='nav-link text-white hover-underline-animation' to="products">Products</NavLink>
+            <NavLink className='nav-link text-white hover-underline-animation' to="service">Service</NavLink>
+            <NavLink className='nav-link text-white hover-underline-animation' to="contact">Contact</NavLink>
+            <NavLink className="nav-link text-white hover-underline-animation" to={"about"}>About</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,72 +1,73 @@
-:root{
-  --bg-dark:RGB(35, 31, 32);
+:root {
+    --bg-dark: RGB(35, 31, 32);
 }
-.bg-dark-custom{
-  background-color: var(--bg-dark)!important;
+
+.bg-dark-custom {
+    background-color: var(--bg-dark) !important;
 }
-ul{
+
+ul {
     list-style-type: none;
 }
 
 *, *::before, *::after {
     box-sizing: border-box;
-  }
-  * {
+}
+
+* {
     margin: 0;
-  }
-  html, body {
+}
+
+html, body {
     height: 100%;
-  }
-  body {
+}
+
+body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-  }
-  img, picture, video, canvas, svg {
+}
+
+img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;
-  }
-  input, button, textarea, select {
+}
+
+input, button, textarea, select {
     font: inherit;
-  }
-  p, h1, h2, h3, h4, h5, h6 {
+}
+
+p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
-  }
-  #root, #__next {
+}
+
+#root, #__next {
     isolation: isolate;
-  }
+}
 
-  .logoStyle{
+.logoStyle {
     max-width: 200px;
-  }
+}
 
-  .menu-hover:hover{
-    border-bottom: 1px solid white;
-  }
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: white;
+}
 
-  /* .menu-hover{
-    border: 1px solid #cccfdb;
-    border-radius: 2px;
- }  */
- /* .hover-underline-animation {
-   display: inline-block;
-   position: relative;
-   color: #0087ca;
- }
- 
- .hover-underline-animation:after {
-   content: '';
-   position: absolute;
-   width: 100%;
-   transform: scaleX(0);
-   height: 2px;
-   bottom: 0;
-   left: 0;
-   background-color: #0087ca;
-   transform-origin: bottom right;
-   transition: transform 0.25s ease-out;
- }
- 
- .hover-underline-animation:hover:after {
-   transform: scaleX(1);
-   transform-origin: bottom left;
- } */
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
