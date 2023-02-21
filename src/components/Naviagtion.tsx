@@ -20,7 +20,7 @@ export default function Navigation({}: Props) {
             <NavLink className='nav-link text-white hover-underline-animation' to="products">Products</NavLink>
             <NavLink className='nav-link text-white hover-underline-animation' to="service">Service</NavLink>
             <NavLink className='nav-link text-white hover-underline-animation' to="contact">Contact</NavLink>
-            <NavLink className="nav-link text-white hover-underline-animation" to={"about"}>About</NavLink>
+            <NavLink className="nav-link text-white hover-underline-animation" to="about">About</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

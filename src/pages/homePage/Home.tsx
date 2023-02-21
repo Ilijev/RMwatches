@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import LandingBanner from "../../components/landingBanner/LandingBanner";
 import styles from './homePage.module.css'
@@ -10,7 +10,7 @@ type Props = {};
 
 export default function Home({}: Props) {
 
-    const [cardsData] = React.useState(dummy_data.slice(0, 9));
+    const [cardsData] = useState(dummy_data.watches.slice(0, 9));
 
     return (
         <>
@@ -35,7 +35,7 @@ export default function Home({}: Props) {
                         {
                             cardsData.map((watch, index) => {
                                 return (
-                                    <div key={index} className='col-4 py-2'>
+                                    <div key={index} className='col-sm-6 col-md-4 py-2'>
                                         <Card/>
                                     </div>
                                 )
