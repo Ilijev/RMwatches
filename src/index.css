@@ -1,73 +1,103 @@
 :root {
-    --bg-dark: RGB(35, 31, 32);
+  --bg-dark: RGB(35, 31, 32);
 }
 
 .bg-dark-custom {
-    background-color: var(--bg-dark) !important;
+  background-color: var(--bg-dark) !important;
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
-*, *::before, *::after {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 * {
-    margin: 0;
+  margin: 0;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+  /* height: 100%; */
+  min-height: 100vh;
 }
 
 body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
 }
 
-input, button, textarea, select {
-    font: inherit;
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 
-#root, #__next {
-    isolation: isolate;
+#root,
+#__next {
+  isolation: isolate;
 }
 
 .logoStyle {
-    max-width: 200px;
+  max-width: 200px;
 }
 
 .hover-underline-animation {
-    display: inline-block;
-    position: relative;
-    color: white;
+  display: inline-block;
+  position: relative;
+  color: white;
 }
 
 .hover-underline-animation:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: white;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
 }
 
 .hover-underline-animation:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
+
+a {
+  text-decoration: none !important;
+  color: black !important;
+}
+/* 
+.image-gallery-thumbnail-image{
+    /* height: 70px;
+    width: 100%; */
+    /* object-position: center; */
+    /* object-fit: contain; */
+/* }  */

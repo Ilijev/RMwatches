@@ -36,7 +36,7 @@ export default function Home({}: Props) {
                             cardsData.map((watch, index) => {
                                 return (
                                     <div key={index} className='col-sm-6 col-md-4 py-2'>
-                                        <Card/>
+                                        <Card id={watch.id}/>
                                     </div>
                                 )
                             })

@@ -1,8 +1,9 @@
 import React from "react";
+import Maps from "./maps/Maps";
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-custom text-center text-white">
+    <footer className="bg-dark-custom text-center text-white ">
       {/* <!-- Grid container --> */}
       <div className="container p-4 pb-0">
         {/* <!-- Section: Social media --> */}
@@ -11,8 +12,6 @@ export default function Footer() {
           <a className="btn btn-outline-light btn-floating m-1" href="#!">
             <i className="fab fa-facebook-f"></i>
           </a>
-
-        
 
           {/* <!-- Google --> */}
           <a className="btn btn-outline-light btn-floating m-1" href="#!">
@@ -23,28 +22,30 @@ export default function Footer() {
           <a className="btn btn-outline-light btn-floating m-1" href="#!">
             <i className="fab fa-instagram"></i>
           </a>
-
-       
         </section>
         {/* <!-- Section: Social media --> */}
       </div>
       {/* <!-- Grid container --> */}
-      <div className="container-fluid" >
-        <div className="col-md-6 mx-auto">
-          <div className="row">
-            <div className="col-md-6">
+      <div className="container-fluid">
+        <div className="col-md-9 mx-auto">
+          <div className="row align-items-center">
+            <div className="col-md-4">
               <p>
                 RM Watches Munich An- und Verkauf von Luxusuhren
                 Uhrmacherwerkstatt
               </p>
             </div>
-            <div className="col-md-6">
-                <ul className="list-group">
-                    <li className="list-item">+49 173 897 1063</li>
-                    <li className="list-item">info@rmwatches.de</li>
-                    <li className="list-item">Feringastr. 6, 85774 Unterföhring</li>
-
-                </ul>
+            <div className="col-4 ">
+              <div className="">
+                <Maps />
+              </div>
+            </div>
+            <div className="col-md-4">
+              <ul className="list-group">
+                <li className="list-item">+49 173 897 1063</li>
+                <li className="list-item">info@rmwatches.de</li>
+                <li className="list-item">Feringastr. 6 85774 Unterföhring</li>
+              </ul>
             </div>
           </div>
         </div>
