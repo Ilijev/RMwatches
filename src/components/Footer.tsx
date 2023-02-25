@@ -35,7 +35,7 @@ export default function Footer() {
                 Uhrmacherwerkstatt
               </p>
             </div>
-            <div className="col-4 ">
+            <div className="col-md-4 ">
               <div className="">
                 <Maps />
               </div>

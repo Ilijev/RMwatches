@@ -8,7 +8,7 @@ type Props = {};
 
 export default function Navigation({}: Props) {
   return (
-    <Navbar collapseOnSelect expand="md"  variant="dark" className="py-0 bg-dark-custom">
+    <Navbar collapseOnSelect expand="md"  variant="dark" className="py-0 bg-dark-custom ">
       <Container fluid>
         
         <NavLink className={`navbar-brand logoStyle`} to="/">

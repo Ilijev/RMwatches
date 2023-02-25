@@ -98,6 +98,10 @@ a {
 .image-gallery-thumbnail-image{
     /* height: 70px;
     width: 100%; */
-    /* object-position: center; */
-    /* object-fit: contain; */
+/* object-position: center; */
+/* object-fit: contain; */
 /* }  */
+
+/* .hideFilter > *:not(:first-child) {
+  display: none;
+} */
