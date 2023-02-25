@@ -3,10 +3,11 @@ import './App.css';
 import Navigation from './components/Naviagtion';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/homePage/Home';
-import Footer from './components/Footer';
+import Footer from './components/footer/Footer';
 import NotFound from './pages/not found/NotFound';
 import Products from './pages/products/Products';
 import Details from './pages/details/Details';
+import CallButton from './components/callButton/CallButton';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <div className="col p-0">
       
     <Navigation/>
+    <CallButton/>
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/products' element={<Products/>} />

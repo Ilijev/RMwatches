@@ -1,0 +1,16 @@
+.callButton{
+    height: 55px;
+    width: 55px;
+   
+    background-image: url("../../images/whatsapp.svg");
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    position: fixed;
+    top: 85%;
+    right: 2%;
+    z-index: 100000;
+}
+.callButton:hover{
+    box-shadow: 2px 2px 25px 0px rgba(0,0,0,0.75);
+}

@@ -6,7 +6,9 @@ type Props = {};
 
 export default function Products({}: Props) {
   const [watches, setWatches] = useState<Watch[]>();
-  const [toggleMenu, setToggleMenu] = useState<boolean>(window.innerWidth>769? true:false);
+  const [toggleMenu, setToggleMenu] = useState<boolean>(
+    window.innerWidth > 769 ? true : false
+  );
   const [toggleBrands, setToggleBrands] = useState<boolean>(true);
   const [toggleModel, setToggleModel] = useState<boolean>(true);
   useEffect(() => {
@@ -15,17 +17,24 @@ export default function Products({}: Props) {
       .then((data) => setWatches(data));
   }, []);
 
- 
   return (
     <div className="container-fluid">
       {watches && watches.length && (
         <div className="row py-4">
           <div className="col px-md-3 py-3">
-            <div className={` ${toggleMenu?"":styles.hideFilter}`}>
-              <p className="fs-2 m-0 py-2 px-1  " onClick={e=>{
-                e.stopPropagation()
-                setToggleMenu(!toggleMenu)
-              }}>Filters</p>
+            <div className={` ${toggleMenu ? "" : styles.hideFilter}`}>
+              <div className="d-flex">
+              <p
+                className="fs-2 m-0 py-2 px-1  "
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setToggleMenu(!toggleMenu);
+                }}
+              >
+                Filters
+              </p>
+              <span className={`fs-2 m-0 py-2 px-1 ${toggleMenu?"":styles.rotate}`}>+</span>
+              </div>
 
               <div className={`${toggleBrands ? styles.hideFilter : ""}`}>
                 <p
@@ -38,7 +47,11 @@ export default function Products({}: Props) {
                 </p>
 
                 <div className="">
-                  <button className="btn w-100 text-start">Rolex</button>
+                  {watches.map((brend, idx) => (
+                    <button key={idx} className="btn w-100 text-start">
+                      {brend.maker}
+                    </button>
+                  ))}
 
                   <button className="btn w-100 text-start">Omega</button>
                 </div>
@@ -60,22 +73,18 @@ export default function Products({}: Props) {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="col-md-9 py-3">
+            <div className="row px-3">
+              {watches.map((watch, index) => {
+                return (
+                  <div key={index} className="col-sm-6 col-md-6 col-lg-4 py-2">
+                    <Card id={watch.id} />
+                  </div>
+                );
+              })}
             </div>
-            <div className="col-md-9 py-3">
-              <div className="row px-3">
-                {watches.map((watch, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="col-sm-6 col-md-6 col-lg-4 py-2"
-                    >
-                      <Card id={watch.id} />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          
+          </div>
         </div>
       )}
     </div>

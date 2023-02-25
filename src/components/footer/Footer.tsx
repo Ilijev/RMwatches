@@ -1,6 +1,6 @@
 import React from "react";
-import Maps from "./maps/Maps";
-import './Footer.css';
+import Maps from "../maps/Maps";
+import styles from'./Footer.module.css';
 
 export default function Footer() {
   return (
@@ -10,17 +10,17 @@ export default function Footer() {
         {/* <!-- Section: Social media --> */}
         <section className="mb-4">
           {/* <!-- Facebook --> */}
-          <a className="btn btn-outline-light btn-floating m-1" href="#!">
+          <a className={`btn btn-outline-light btn-floating m-1 ${styles.footer}`} href="#!">
             <i className="fab fa-facebook-f text-white"></i>
           </a>
 
           {/* <!-- Google --> */}
-          <a className="btn btn-outline-light btn-floating m-1" href="#!">
+          <a className={`btn btn-outline-light btn-floating m-1 ${styles.footer}`} href="#!">
             <i className=" fa-regular fa-envelope text-white"></i>{" "}
           </a>
 
           {/* <!-- Instagram --> */}
-          <a className="btn btn-outline-light btn-floating m-1" href="#!">
+          <a className={`btn btn-outline-light btn-floating m-1 ${styles.footer}`} href="#!">
             <i className="fab fa-instagram text-white"></i>
           </a>
         </section>

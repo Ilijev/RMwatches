@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="58px" height="58px" viewbox="0 0 58 58" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB" id="filter_1">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+      <feOffset dx="0" dy="2" />
+      <feGaussianBlur stdDeviation="2" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.6 0 0 0 0 0.6 0 0 0 0 0.6 0 0 0 0.2 0" />
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect0_dropShadow" />
+      <feBlend mode="normal" in="SourceGraphic" in2="effect0_dropShadow" result="shape" />
+    </filter>
+  </defs>
+  <g id="WhatsApp_chat_BTN">
+    <path d="M0 58L4.05652 43.5893C1.44768 39.1558 0.07424 34.1121 0.07424 28.9316C0.07424 12.9792 13.0535 0 29.0046 0C44.9581 0 57.9374 12.9792 57.9374 28.9316C57.9374 44.8839 44.9581 57.8631 29.0046 57.8631C24.034 57.8631 19.1667 56.5894 14.8619 54.1743L0 58Z" id="Fill-3" fill="#FFFFFF" fill-rule="evenodd" stroke="none" filter="url(#filter_1)" />
+    <path d="M10.6407 44.0034L11.5246 44.5417C15.2795 46.835 19.6017 48.046 24.0236 48.046C37.2708 48.046 48.0484 37.2696 48.0484 24.0224C48.0484 10.7752 37.2708 0 24.0236 0C10.7776 0 0 10.7752 0 24.0224C0 28.6381 1.31196 33.1203 3.7932 36.9843L4.38944 37.9134L2.0532 46.2132L10.6407 44.0034Z" transform="translate(4.9814453 4.9091797)" id="Fill-1" fill="#00E871" fill-rule="evenodd" stroke="none" />
+    <path d="M6.50123 0.105539L4.62319 0.00345934C4.03275 -0.0290207 3.45507 0.168179 3.00963 0.554459C2.09903 1.34558 0.64323 2.87214 0.19663 4.86502C-0.46921 7.83462 0.55971 11.4689 3.22655 15.1043C5.89223 18.7398 10.8605 24.556 19.6463 27.0384C22.4779 27.84 24.7051 27.3006 26.4231 26.2021C27.7838 25.3321 28.721 23.9343 29.0597 22.3555L29.359 20.9554C29.4553 20.5099 29.2279 20.0575 28.8162 19.8685L22.4698 16.9418C22.058 16.7527 21.5696 16.8745 21.2924 17.2329L18.8019 20.4601C18.6139 20.7048 18.2926 20.8011 18.0003 20.7002C16.2963 20.0993 10.5821 17.7062 7.44779 11.6684C7.30975 11.4063 7.34339 11.0884 7.53711 10.8657L9.91859 8.11186C10.161 7.82998 10.2225 7.43442 10.0764 7.09338L7.34223 0.694819C7.19607 0.354939 6.87011 0.126419 6.50123 0.105539L6.50123 0.105539Z" transform="translate(14.37793 15.360779)" id="Path" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+  </g>
+</svg>
