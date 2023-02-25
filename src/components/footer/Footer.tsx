@@ -1,26 +1,27 @@
 import React from "react";
 import Maps from "./maps/Maps";
+import './Footer.css';
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-custom text-center text-white ">
+    <footer className="footer bg-dark-custom text-center text-white ">
       {/* <!-- Grid container --> */}
       <div className="container p-4 pb-0">
         {/* <!-- Section: Social media --> */}
         <section className="mb-4">
           {/* <!-- Facebook --> */}
           <a className="btn btn-outline-light btn-floating m-1" href="#!">
-            <i className="fab fa-facebook-f"></i>
+            <i className="fab fa-facebook-f text-white"></i>
           </a>
 
           {/* <!-- Google --> */}
           <a className="btn btn-outline-light btn-floating m-1" href="#!">
-            <i className=" fa-regular fa-envelope"></i>{" "}
+            <i className=" fa-regular fa-envelope text-white"></i>{" "}
           </a>
 
           {/* <!-- Instagram --> */}
           <a className="btn btn-outline-light btn-floating m-1" href="#!">
-            <i className="fab fa-instagram"></i>
+            <i className="fab fa-instagram text-white"></i>
           </a>
         </section>
         {/* <!-- Section: Social media --> */}
