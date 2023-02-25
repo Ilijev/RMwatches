@@ -44,7 +44,7 @@ export default function Home({}: Props) {
                     </div>
                 }
                 <div className="row justify-content-center py-3">
-                    <NavLink to='/products' className="col-4 btn btn-outline-dark">VIEW ALL</NavLink>
+                    <NavLink to='/products' className={`col-4 btn btn-outline-dark ${styles.btnHover}`}>VIEW ALL</NavLink>
                 </div>
             </div>
         </>
