@@ -11,6 +11,7 @@ export default function Products({}: Props) {
   );
   const [toggleBrands, setToggleBrands] = useState<boolean>(true);
   const [toggleModel, setToggleModel] = useState<boolean>(true);
+ 
   useEffect(() => {
     fetch("http://localhost:3004/watches")
       .then((res) => res.json())
@@ -23,17 +24,18 @@ export default function Products({}: Props) {
         <div className="row py-4">
           <div className="col px-md-3 py-3">
             <div className={` ${toggleMenu ? "" : styles.hideFilter}`}>
-              <div className="d-flex">
+              <div className="d-flex justify-content-between">
               <p
-                className="fs-2 m-0 py-2 px-1  "
+                className="fs-2 m-0 py-2 px-1 w-100  "
                 onClick={(e) => {
                   e.stopPropagation();
                   setToggleMenu(!toggleMenu);
+                  
                 }}
               >
                 Filters
               </p>
-              <span className={`fs-2 m-0 py-2 px-1 ${toggleMenu?"":styles.rotate}`}>+</span>
+              <span className={`fs-2 m-0 py-2 px-1 `}>+</span>
               </div>
 
               <div className={`${toggleBrands ? styles.hideFilter : ""}`}>
