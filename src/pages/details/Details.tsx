@@ -7,6 +7,7 @@ import image1 from "../../images/thumbnail3.jpg";
 import image2 from "../../images/thumbnail1.jpg";
 import image3 from "../../images/thumbnail2.jpg";
 import image4 from "../../images/rmLogoHorizontalBlack.jpg";
+import AlertWithForm from "../../components/modals/requestForWatch";
 type Props = {};
 
 export default function Details({}: Props) {
@@ -177,9 +178,7 @@ export default function Details({}: Props) {
                 </div>
               </div>
               <div className="row">
-                <button className="btn-block col-6 mx-auto  btn bg-custom text-uppercase fs-5 fw-light bg-dark-custom text-white">
-                  Request information
-                </button>
+                <AlertWithForm/>
               </div>
               <div className="row mt-4">
             <div className="col">
