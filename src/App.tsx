@@ -8,6 +8,8 @@ import NotFound from './pages/not found/NotFound';
 import Products from './pages/products/Products';
 import Details from './pages/details/Details';
 import CallButton from './components/callButton/CallButton';
+import AboutUs from './pages/about us/AboutUs';
+import Contact from './pages/contact page/Contact';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path='/products' element={<Products/>} />
         <Route path='/products/details/:id' element={<Details/>} />
         <Route path='/details/:id' element={<Details  />} />
+        <Route path='/about' element={<AboutUs  />} />
+        <Route path='/contact' element={<Contact  />} />
         <Route path='*' element={<NotFound/>} />
       </Routes>
       <Footer/>
