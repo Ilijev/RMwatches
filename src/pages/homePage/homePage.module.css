@@ -1,9 +1,4 @@
-/* .carouselHeight{
-    
-} */
-/* .carouselImg{
-    height: 100vh;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    object-position: center;
-} */
+.btnHover:hover{
+    background-color: var(--bg-dark);
+    color: white!important;
+}
