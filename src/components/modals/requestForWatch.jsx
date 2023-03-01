@@ -2,15 +2,16 @@ import React from 'react';
 import Swal from 'sweetalert2';
 
 const AlertWithForm = () => {
-    const [formData, setFormData] = React.useState({
+    const [formData] = React.useState({
         firstName: '',
         lastName: '',
         company: '',
+        telephone: '',
+        email: '',
         region: '',
         address: '',
         postcode: '',
-        telephone: '',
-        email: '',
+        place_town: '',
         additional_info: ''
     });
 
@@ -30,7 +31,6 @@ const AlertWithForm = () => {
 
     function sendEmail() {
         console.log("sendEmail()");
-        console.log(formData);
     }
 
     function stepOne() {
@@ -68,6 +68,7 @@ const AlertWithForm = () => {
             preConfirm: () => {
                 const firstName = Swal.getPopup().querySelector('#firstName').value;
                 const lastName = Swal.getPopup().querySelector('#lastName').value;
+                const company = Swal.getPopup().querySelector('#company').value;
                 const telephone = Swal.getPopup().querySelector('#telephone').value;
                 const email = Swal.getPopup().querySelector('#email').value;
 
@@ -76,13 +77,13 @@ const AlertWithForm = () => {
                     Swal.showValidationMessage(`Please fill in the required fields`);
                 }
 
-                // setFormData({
-                //     firstName: firstName,
-                //     lastName: lastName,
-                //     company: 'asdadsadasd',
-                //     telephone: telephone,
-                //     email: email
-                // });
+                Object.assign(formData, {
+                    firstName: firstName,
+                    lastName: lastName,
+                    company: company,
+                    telephone: telephone,
+                    email: email
+                });
             },
             willOpen: () => {
                 document.getElementById('firstName').focus();
@@ -105,9 +106,9 @@ const AlertWithForm = () => {
             html: `
                 <form id="form" class="row py-1 m-auto needs-validation" style="width: 98%">
                     <div class="col-12">
-                        <select class="form-select mb-3" id="region" name="region" required value="${formData.region}">
+                        <select class="form-select mb-3" id="region" name="region" required>
                             <option selected disabled value="">Please select a region</option>
-                            ${regions.map(region => `<option value="${region}">${region}</option>`)}
+                            ${regions.map(region => `<option ${region === formData.region ? 'selected' : ''} value="${region}">${region}</option>`)}
                         </select>
                     </div>
                     <div class="col-12">
@@ -116,11 +117,11 @@ const AlertWithForm = () => {
                     </div>
                     <div class="col-6">
                         <input class="form-control mb-3" type="text" id="postcode" name="postcode" 
-                        required placeholder="Postcode"/>
+                        required placeholder="Postcode" value="${formData.postcode}"/>
                     </div>
                     <div class="col-6">
                         <input class="form-control mb-3" type="text" id="place_town" name="place_town" 
-                        required placeholder="Place/Town"/>                    
+                        required placeholder="Place/Town" value="${formData.place_town}"/>                    
                     </div>
                 </form>
             `,
@@ -134,14 +135,13 @@ const AlertWithForm = () => {
                     Swal.getPopup().querySelector('.needs-validation').classList.add('was-validated');
                     Swal.showValidationMessage(`Please fill in the required fields`);
                 }
-                // const form = document.getElementById('form');
-                // const formData1 = new FormData(form);
-                // setFormData({
-                //     region: formData1.get('region'),
-                //     address: formData1.get('address'),
-                //     postcode: formData1.get('postcode'),
-                //     place_town: formData1.get('place_town')
-                // });
+
+                Object.assign(formData, {
+                    region: region,
+                    address: address,
+                    postcode: postcode,
+                    place_town: place_town
+                });
             },
         }).then(result => {
             if (result.isConfirmed) {
@@ -168,6 +168,12 @@ const AlertWithForm = () => {
                     </div>
                 </form>
             `,
+            preConfirm: () => {
+                const additionalInfo = Swal.getPopup().querySelector('#additional_info').value;
+                Object.assign(formData, {
+                    additional_info: additionalInfo,
+                });
+            },
         }).then(result => {
             if (result.isConfirmed) {
                 handleSubmit();
@@ -179,7 +185,7 @@ const AlertWithForm = () => {
 
     return (
         <button onClick={stepOne}
-                className="btn-block col-6 mx-auto  btn bg-custom text-uppercase fs-5 fw-light bg-dark-custom text-white">
+                className="btn-block col-6 mx-auto btn bg-custom text-uppercase fs-5 fw-light bg-dark-custom text-white">
             Request information
         </button>
     );
