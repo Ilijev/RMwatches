@@ -1,6 +1,6 @@
 import React from "react";
-import Maps from "./maps/Maps";
-import './Footer.css';
+import Maps from "../maps/Maps";
+import './Footer.module.css';
 
 export default function Footer() {
   return (
