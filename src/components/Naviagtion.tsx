@@ -19,8 +19,7 @@ export default function Navigation({}: Props) {
         <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
           <Nav className="text-center align-items-center">
             <NavLink className='nav-link text-white hover-underline-animation' to="products">Products</NavLink>
-            <NavLink className='nav-link text-white hover-underline-animation' to="service">Service</NavLink>
-            <NavLink className='nav-link text-white hover-underline-animation' to="contact">Contact</NavLink>
+            <NavLink className='nav-link text-white hover-underline-animation' to="contact">Sell your watch</NavLink>
             <NavLink className="nav-link text-white hover-underline-animation" to="about">About</NavLink>
             <ChangeLanguage/>
           </Nav>

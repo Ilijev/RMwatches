@@ -105,3 +105,13 @@ a {
 /* .hideFilter > *:not(:first-child) {
   display: none;
 } */
+
+/* buttons for modal confirm and cancel */
+
+.swal2-confirm:hover{
+  background-color: green !important ;
+}
+.swal2-cancel:hover{
+
+  background-color: red !important ;
+}

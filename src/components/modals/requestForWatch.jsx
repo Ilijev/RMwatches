@@ -38,6 +38,7 @@ const AlertWithForm = () => {
             title: 'Step 1 - Personal Information',
             showCancelButton: true,
             confirmButtonText: 'Next &rarr;',
+            confirmButtonColor:"RGB(35, 31, 32)",
             cancelButtonText: 'Cancel',
             focusConfirm: false,
             reverseButtons: true,
@@ -100,6 +101,7 @@ const AlertWithForm = () => {
             title: 'Step 2 - Contact Information',
             showCancelButton: true,
             confirmButtonText: 'Next &rarr;',
+            confirmButtonColor:"RGB(35, 31, 32)",
             cancelButtonText: '&larr; Prev',
             focusConfirm: false,
             reverseButtons: true,
@@ -160,6 +162,8 @@ const AlertWithForm = () => {
             cancelButtonText: '&larr; Prev',
             focusConfirm: false,
             reverseButtons: true,
+            confirmButtonColor:"RGB(35, 31, 32)",
+
             html: `
                 <form id="form" class="row py-1 m-auto" style="width: 98%">
                     <div class="col-12">
