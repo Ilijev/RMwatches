@@ -12,11 +12,11 @@ interface Props {}
 const GoogleMapWrapper = () => {
   const [map, setMap] = useState<google.maps.Map | null>(null);
 
-  useEffect(() => {
-    if (map) {
-      console.log(map.getCenter());
-    }
-  }, [map]);
+  // useEffect(() => {
+  //   if (map) {
+  //     console.log(map.getCenter());
+  //   }
+  // }, [map]);
 
   const onLoad = (mapInstance: google.maps.Map) => {
     setMap(mapInstance);
