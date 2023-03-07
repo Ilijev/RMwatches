@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Navigation from './components/Naviagtion';
 import {Route, Routes} from 'react-router-dom';
@@ -11,8 +11,10 @@ import CallButton from './components/callButton/CallButton';
 import AboutUs from './pages/about us/AboutUs';
 import Contact from './pages/contact page/Contact';
 import DashBoard from './pages/dashboard/DashBoard';
+import CookiesBanner from './components/handle cookies/CookiesBanner';
 
 function App() {
+  const [showBanner, setShowBanner] = useState(false);
   return (
     <div className='container-fluid p-0'>
       <div className="row p-0 m-0">
@@ -20,6 +22,7 @@ function App() {
       
     <Navigation/>
     <CallButton/>
+    <CookiesBanner handleCookies={setShowBanner} showBanner={showBanner}/>
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/products' element={<Products/>} />
