@@ -7,7 +7,7 @@ type Props = {};
 export default function DashBoard({}: Props) {
   const [selectedFile, setSelectedFile] = useState<any>([]);
   const [preview, setPreview] = useState<any>();
-  const [watch, setWatch] = useState<Watch>({
+  const [watch, setWatch] = useState<any>({
     id: 0,
     code: 0,
     model: "",
@@ -26,11 +26,12 @@ export default function DashBoard({}: Props) {
     date_created: "",
     date_lastUpdate: "",
     creator: 0,
+    img: selectedFile || "",
   });
 
   useEffect(() => {
     if (!selectedFile[0]) {
-      setPreview(undefined);
+      setPreview([...selectedFile]);
       return;
     }
 
@@ -39,16 +40,23 @@ export default function DashBoard({}: Props) {
 
   const onSelectFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) {
-      setSelectedFile(undefined);
+      setSelectedFile([...selectedFile]);
+    //   setSelectedFile((items:any)=> items.concat(Array.from(selectedFile)));
+    //   console.log(selectedFile)
       return;
     }
 
-    setSelectedFile([...selectedFile, e.target.files[0]]);
     console.log(selectedFile);
+    // setSelectedFile([...selectedFile, e.target.files[0]]); ovoa e prvicnoto ama vaka e samo poedinecni fajlovi 
+    setSelectedFile([...selectedFile, e.target.files.length>1? e.target.files:e.target.files[0]]);
+    // tuka stavi poedinecen ako imas eden ama na vtoro stavanje ako izberes povekje gi stave u votr item ama kako lista u votrio item
+    // imas logovi vidi ke vides so dumam opravi ako mozes
   };
   function handleSubmit(e: any) {
     e.preventDefault();
     // Object.entries(watch).every(item=>item )
+    // console.log(watch);
+    console.log(selectedFile);
   }
 
   return (
@@ -254,7 +262,8 @@ export default function DashBoard({}: Props) {
               <div className="form-group my-2 col-12 col-lg-6">
                 <input
                   type="file"
-                  onChange={onSelectFile}
+                  multiple
+                  onChange={ onSelectFile}
                   className="form-control shadow-none -file "
                 />
               </div>
@@ -271,16 +280,13 @@ export default function DashBoard({}: Props) {
                   Watch Box And Papers
                 </label>
               </div>
-              <button className="btn bg-dark-custom text-white" >
+              <button className="btn bg-dark-custom text-white">
                 Create Watch
               </button>
             </div>
           </form>
         </div>
-        <div
-          className="col-12 col-md-5 col-lg-3"
-          onClick={(e) => e.stopPropagation()}
-        >
+        <div className="col-12 col-md-5 col-lg-3">
           <Card img={preview} />
           {/* {selectedFile &&  <img src={preview} /> } */}
         </div>
