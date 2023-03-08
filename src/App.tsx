@@ -31,6 +31,7 @@ function App() {
         <Route path='/about' element={<AboutUs  />} />
         <Route path='/contact' element={<Contact  />} />
         <Route path='/dashboard' element={<DashBoard  />} />
+        <Route path='/dashboard/:id' element={<DashBoard  />} />
         <Route path='*' element={<NotFound/>} />
       </Routes>
       <Footer/>
