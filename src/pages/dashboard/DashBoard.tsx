@@ -9,7 +9,7 @@ export default function DashBoard({}: Props) {
   const [selectedFile, setSelectedFile] = useState<any>([]);
   const [preview, setPreview] = useState<any>();
   const [watch, setWatch] = useState<Watch>({
-    id: 0,
+    id: new Date().valueOf(),
     code: 0,
     model: "",
     maker: "",
@@ -35,13 +35,13 @@ export default function DashBoard({}: Props) {
     id && fetch(`http://localhost:3004/watches/${id}`)
     .then(res=>res.json())
     .then(data=>{setWatch(data)
-    console.log(data)
+    // console.log(watch)
     })
   }, []);
 
   useEffect(() => {
     if (!selectedFile[0]) {
-      setPreview([...selectedFile]);
+      setPreview(preview);
       return;
     }
 
@@ -56,7 +56,7 @@ export default function DashBoard({}: Props) {
       return;
     }
 
-    console.log(selectedFile);
+    // console.log(selectedFile);
     // setSelectedFile([...selectedFile, e.target.files[0]]); ovoa e prvicnoto ama vaka e samo poedinecni fajlovi
     setSelectedFile([
       ...selectedFile,
@@ -68,8 +68,8 @@ export default function DashBoard({}: Props) {
   function handleSubmit(e: any) {
     e.preventDefault();
     // Object.entries(watch).every(item=>item )
-    // console.log(watch);
-    console.log(selectedFile);
+    console.log(watch);
+    // console.log(selectedFile);
   }
 
   return (
