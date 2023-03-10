@@ -10,8 +10,9 @@ import Details from './pages/details/Details';
 import CallButton from './components/callButton/CallButton';
 import AboutUs from './pages/about us/AboutUs';
 import Contact from './pages/contact page/Contact';
-import DashBoard from './pages/dashboard/DashBoard';
+import DashBoardForm from './pages/dashboard form/DashBoardForm';
 import CookiesBanner from './components/handle cookies/CookiesBanner';
+import DashBoardLanding from './pages/dash board landing/DashBoardLanding';
 
 function App() {
   const [showBanner, setShowBanner] = useState(false);
@@ -30,8 +31,9 @@ function App() {
         <Route path='/details/:id' element={<Details  />} />
         <Route path='/about' element={<AboutUs  />} />
         <Route path='/contact' element={<Contact  />} />
-        <Route path='/dashboard' element={<DashBoard  />} />
-        <Route path='/dashboard/:id' element={<DashBoard  />} />
+        <Route path='/dashboard' element={<DashBoardLanding />} />
+        <Route path='/dashboard/form' element={<DashBoardForm  />} />
+        <Route path='/dashboard/form/:id' element={<DashBoardForm  />} />
         <Route path='*' element={<NotFound/>} />
       </Routes>
       <Footer/>

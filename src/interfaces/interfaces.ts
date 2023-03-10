@@ -1,5 +1,5 @@
 export interface Watch {
-    id: number;
+    id?: number;
     code: number;
     model: string;
     maker: string;
@@ -14,7 +14,7 @@ export interface Watch {
     year: number;
     condition: string;
     description: string;
-    date_created: string;
-    date_lastUpdate: string;
-    creator: number;
+    date_created?: string;
+    date_lastUpdate?: string;
+    creator?: number;
 }

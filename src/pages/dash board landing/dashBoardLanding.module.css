@@ -1,0 +1,15 @@
+.cardStyle p{
+margin: 0;
+}
+.imgStyle{
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media screen and (max-width: 600px) {
+    .imgStyle{
+        max-height: 100%;
+        margin: 0 auto;
+    }
+}

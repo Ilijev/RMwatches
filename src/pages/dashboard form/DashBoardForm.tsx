@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Card from "../../components/card/card";
-import { Watch } from "./../../interfaces/interfaces";
-import styles from "./dasboardStyles.module.css";
-import { useParams } from "react-router-dom";
+import { Watch } from "../../interfaces/interfaces";
+import styles from "./dashBoardFormStyles.module.css";
+import { useNavigate, useParams } from "react-router-dom";
 type Props = {};
 
-export default function DashBoard({}: Props) {
+export default function DashBoardForm({}: Props) {
   const [selectedFile, setSelectedFile] = useState<any>([]);
   const [preview, setPreview] = useState<any>();
   const [watch, setWatch] = useState<Watch>({
-    id: new Date().valueOf(),
+    
     code: 0,
     model: "",
     maker: "",
@@ -24,11 +24,13 @@ export default function DashBoard({}: Props) {
     year: 0,
     condition: "",
     description: "",
-    date_created: "",
-    date_lastUpdate: "",
-    creator: 0,
+   
+    
+   
     // tuka img:"" fale i trgni go gore Watch stay any za erroro
   });
+  const navigate = useNavigate();
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -70,10 +72,21 @@ export default function DashBoard({}: Props) {
     // Object.entries(watch).every(item=>item )
     console.log(watch);
     // console.log(selectedFile);
+    fetch("http://localhost:1337/api/watches",{
+     
+    // Adding method type
+    method: "POST",
+     
+    // Adding body or contents to send
+    body: JSON.stringify(watch)
+     
+   
+  })
   }
 
   return (
     <div className="container-fluid">
+      <div className="row"> <div className="col-1 d-none d-lg-block mx-3 mt-3"><button className="btn" onClick={()=>navigate(-1)}>Go Back</button> </div></div>
       <div className="row p-4">
         <div className="col col-md-7 col-lg-9 ">
           <form
