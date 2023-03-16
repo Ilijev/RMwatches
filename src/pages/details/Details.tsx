@@ -47,7 +47,7 @@ export default function Details({}: Props) {
         new Intl.NumberFormat("de-DE", {
           style: "currency",
           currency: "EUR",
-        }).format(filteredWatch?.price)
+        }).format(filteredWatch?.attributes.price)
       );
   }, [watches]);
 
@@ -80,15 +80,15 @@ export default function Details({}: Props) {
               </div>
               <div className="row ">
                 <p className="col mb-1 text-secondary text-capitalize fs-5 ">
-                  {filteredWatch.maker}
+                  {filteredWatch.attributes.maker}
                 </p>
               </div>
               <div className="row">
-                <p className="col fs-1 mb-0">{filteredWatch.model}</p>
+                <p className="col fs-1 mb-0">{filteredWatch.attributes.model}</p>
               </div>
               <div className="row ">
                 <p className="col mb-1 text-secondary text-uppercase  ">
-                  ref.{filteredWatch.reference_number}
+                  ref.{filteredWatch.attributes.referenceNumber}
                 </p>
               </div>
               <div className="row mt-4">
@@ -96,7 +96,7 @@ export default function Details({}: Props) {
                   {new Intl.NumberFormat("de-DE", {
                     style: "currency",
                     currency: "EUR",
-                  }).format(filteredWatch?.price)}
+                  }).format(filteredWatch?.attributes.price)}
                 </p>
               </div>
               <div className="row my-5">
@@ -108,7 +108,7 @@ export default function Details({}: Props) {
                           Year
                         </th>
                         <td className="text-end px-2 pb-3">
-                          {filteredWatch.year}
+                          {filteredWatch.attributes.year}
                         </td>
                       </tr>
                       <tr>
@@ -116,7 +116,7 @@ export default function Details({}: Props) {
                           Condition
                         </th>
                         <td className="text-end px-2 pb-3">
-                          {filteredWatch.condition}
+                          {filteredWatch.attributes.condition}
                         </td>
                       </tr>
                       <tr>
@@ -124,7 +124,7 @@ export default function Details({}: Props) {
                           Box
                         </th>
                         <td className="text-end px-2 pb-3">
-                          {filteredWatch.box_papers ? "Yes" : "No"}
+                          {filteredWatch.attributes.boxPapers ? "Yes" : "No"}
                         </td>
                       </tr>
                       <tr>
@@ -132,7 +132,7 @@ export default function Details({}: Props) {
                           Material
                         </th>
                         <td className="text-end px-2 pb-3">
-                          {filteredWatch.material}
+                          {filteredWatch.attributes.material}
                         </td>
                       </tr>
                     </tbody>
@@ -146,7 +146,7 @@ export default function Details({}: Props) {
                           Movement
                         </th>
                         <td className="text-end px-2 pb-3">
-                          {filteredWatch.movement}
+                          {filteredWatch.attributes.movement}
                         </td>
                       </tr>
                       <tr>
@@ -154,7 +154,7 @@ export default function Details({}: Props) {
                           Case size
                         </th>
                         <td className="text-end px-2 pb-3">
-                          {filteredWatch.diameter}
+                          {filteredWatch.attributes.diameter}
                         </td>
                       </tr>
                       <tr>
@@ -162,7 +162,7 @@ export default function Details({}: Props) {
                           Dial color
                         </th>
                         <td className="text-end px-2 pb-3">
-                          {filteredWatch.color_dial}
+                          {filteredWatch.attributes.colorDial}
                         </td>
                       </tr>
                       <tr>
@@ -170,7 +170,7 @@ export default function Details({}: Props) {
                           Band
                         </th>
                         <td className="text-end px-2 pb-3">
-                          {filteredWatch.watch_band}
+                          {filteredWatch.attributes.watchBand}
                         </td>
                       </tr>
                     </tbody>
@@ -203,7 +203,7 @@ export default function Details({}: Props) {
                     data-bs-parent="#accordionExample"
                   >
                     <div className="accordion-body">
-                      {filteredWatch.description}
+                      {filteredWatch.attributes.description}
                     </div>
                   </div>
                 </div>

@@ -13,6 +13,7 @@ import Contact from './pages/contact page/Contact';
 import DashBoardForm from './pages/dashboard form/DashBoardForm';
 import CookiesBanner from './components/handle cookies/CookiesBanner';
 import DashBoardLanding from './pages/dash board landing/DashBoardLanding';
+import LoginForm from './pages/logInForm/LogInForm';
 
 function App() {
   const [showBanner, setShowBanner] = useState(false);
@@ -34,6 +35,7 @@ function App() {
         <Route path='/dashboard' element={<DashBoardLanding />} />
         <Route path='/dashboard/form' element={<DashBoardForm  />} />
         <Route path='/dashboard/form/:id' element={<DashBoardForm  />} />
+        <Route path='/login' element={<LoginForm  />} />
         <Route path='*' element={<NotFound/>} />
       </Routes>
       <Footer/>

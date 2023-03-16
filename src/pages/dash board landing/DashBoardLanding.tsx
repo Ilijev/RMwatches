@@ -7,14 +7,15 @@ import { useNavigate } from "react-router-dom";
 type Props = {};
 
 export default function DashBoardLanding({}: Props) {
-  const [watches, setWatches] = useState<Watch[]>();
+  const [watches, setWatches] = useState<any[]>();
   const [filtered, setFiltered] = useState<Watch[]>();
   const navigate = useNavigate();
   async function fetchWatches() {
-    const res = await fetch("http://localhost:3004/watches");
+    // const res = await fetch("http://localhost:3004/watches");
+    const res = await fetch("http://localhost:1337/api/watches");
     const data = await res.json();
-    setWatches(data);
-
+    setWatches(data.data);
+    
     if (!res.ok) {
       const message = `An error has occured: ${res.status}`;
       throw new Error(message);
@@ -25,6 +26,8 @@ export default function DashBoardLanding({}: Props) {
   }, []);
   useEffect(() => {
     setFiltered(watches);
+    // console.log(watches)
+    // watches && console.log(watches[0].attributes)
   }, [watches]);
 
   function handleFIltered(e: React.ChangeEvent<HTMLInputElement>) {
@@ -61,7 +64,7 @@ export default function DashBoardLanding({}: Props) {
         {filtered &&
           filtered?.map((watch) => (
             <div
-              key={watch.reference_number}
+              key={watch.attributes.referenceNumber}
               className={`row ${styles.cardStyle} my-3 border `}
             >
               <div className="col-12 col-sm-4 col-md-3  col-xl-2 mb-2 mb-sm-0">
@@ -73,19 +76,19 @@ export default function DashBoardLanding({}: Props) {
               </div>
               <div className="col-8  col-sm-4 mb-2">
                 <span className="fs-4 text-capitalize fw-normal">
-                  {watch.maker}
+                  {watch.attributes.maker}
                 </span>
                 <span className="d-block mx-2 mx-lg-0 text-capitalize fs-5">
-                  {watch.model}
+                  {watch.attributes.model}
                 </span>
                 <span className="d-block mx-2 mx-lg-0 text-capitalize fs-5">
-                  ref: {watch.reference_number}
+                  ref: {watch.attributes.referenceNumber}
                 </span>
                 <span className="d-block mx-2 mx-lg-0 text-capitalize fs-5">
-                  price: {watch.price}
+                  price: {watch.attributes.price}
                 </span>
                 <span className="d-block mx-2 mx-lg-0 text-capitalize fs-5">
-                  box & papers: {watch.box_papers ? "yes" : "no"}
+                  box & papers: {watch.attributes.boxPapers ? "yes" : "no"}
                 </span>
               </div>
               <div className="d-flex flex-wrap col-lg col-4 justify-content-end align-items-end p-3">

@@ -51,7 +51,7 @@ export default function Products({}: Props) {
                 <div className="">
                   {watches.map((brend, idx) => (
                     <button key={idx} className="btn w-100 text-start">
-                      {brend.maker}
+                      {brend.attributes.maker}
                     </button>
                   ))}
 
