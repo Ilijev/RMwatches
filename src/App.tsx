@@ -25,6 +25,7 @@ function App() {
     <Navigation/>
     <CallButton/>
     <CookiesBanner handleCookies={setShowBanner} showBanner={showBanner}/>
+    
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/products' element={<Products/>} />

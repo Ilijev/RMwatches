@@ -5,8 +5,9 @@ import { useNavigate } from 'react-router-dom';
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const [notOk, setNotOk] = useState(false)
   const nav = useNavigate()
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
     fetch("http://localhost:1337/api/auth/local", {
@@ -19,14 +20,25 @@ const LoginForm = () => {
         identifier: username,
         password: password,
       }),
-    }).then(res=>  nav("/dashboard"))
+    }).then(res=>  {
+     res.ok?
+      // nav("/dashboard") 
+      console.log(res)
+
+     :
+        setNotOk(true)
+
+        console.log(res)
+        })
+
    
   };
 
   return (
     <div className="d-flex justify-content-center h-100 align-items-center">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+        <h2 className="text-center text-capitalize">Log in</h2>
+        {notOk && <p>User information not valid</p>}
         <div className="form-group my-3">
           <label htmlFor="username">Username:</label>
           <input
