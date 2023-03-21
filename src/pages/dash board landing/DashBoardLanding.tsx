@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 type Props = {};
 
 export default function DashBoardLanding({}: Props) {
-  const [watches, setWatches] = useState<any[]>();
+  const [watches, setWatches] = useState<Watch[]>();
   const [filtered, setFiltered] = useState<Watch[]>();
   const navigate = useNavigate();
   async function fetchWatches() {
@@ -15,7 +15,8 @@ export default function DashBoardLanding({}: Props) {
     const res = await fetch("http://localhost:1337/api/watches");
     const data = await res.json();
     setWatches(data.data);
-    
+    // console.log(data.data);
+
     if (!res.ok) {
       const message = `An error has occured: ${res.status}`;
       throw new Error(message);
@@ -34,18 +35,17 @@ export default function DashBoardLanding({}: Props) {
     setFiltered(
       watches?.filter(
         (item) =>
-          item.reference_number
-            .toString()
-            .toLowerCase()
-            .includes(e.target.value.toLowerCase()) ||
-          item.model.toLowerCase().includes(e.target.value.toLowerCase()) ||
-          item.maker.toLowerCase().includes(e.target.value.toLowerCase())
+          item.attributes.referenceNumber.toLowerCase().includes(e.target.value.toLowerCase()) 
+          ||
+          item.attributes.model.toLowerCase().includes(e.target.value.toLowerCase()) 
+          ||
+          item.attributes.maker.toLowerCase().includes(e.target.value.toLowerCase())
       )
     );
   }
   return (
     <>
-      <div className="container-fluid ">
+      <div className="container-fluid h-100">
         <div className="row justify-content-between my-3 ">
           <div className="col col-md-5  ">
             <input
@@ -76,10 +76,10 @@ export default function DashBoardLanding({}: Props) {
               </div>
               <div className="col-8  col-sm-4 mb-2">
                 <span className="fs-4 text-capitalize fw-normal">
-                  {watch.attributes.maker}
+                  {watch.attributes.model}
                 </span>
                 <span className="d-block mx-2 mx-lg-0 text-capitalize fs-5">
-                  {watch.attributes.model}
+                  {watch.attributes.maker}
                 </span>
                 <span className="d-block mx-2 mx-lg-0 text-capitalize fs-5">
                   ref: {watch.attributes.referenceNumber}
