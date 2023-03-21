@@ -35,11 +35,11 @@ export default function DashBoardLanding({}: Props) {
     setFiltered(
       watches?.filter(
         (item) =>
-          item.attributes.referenceNumber.toLowerCase().includes(e.target.value.toLowerCase()) 
+        item.attributes.referenceNumber && item.attributes.referenceNumber.toLowerCase().includes(e.target.value.toLowerCase()) 
           ||
-          item.attributes.model.toLowerCase().includes(e.target.value.toLowerCase()) 
+          item.attributes.model && item.attributes.model.toLowerCase().includes(e.target.value.toLowerCase()) 
           ||
-          item.attributes.maker.toLowerCase().includes(e.target.value.toLowerCase())
+          item.attributes.maker && item.attributes.maker.toLowerCase().includes(e.target.value.toLowerCase())
       )
     );
   }
