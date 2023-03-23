@@ -18,5 +18,6 @@ export interface Watch {
         dateCreated?: string;
         dateLastUpdate?: string;
         creator?: number;
+        img?:string
     }
 }

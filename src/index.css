@@ -1,11 +1,14 @@
 :root {
   --bg-dark: RGB(35, 31, 32);
+  --bg-light:RGB(243, 243, 243);
 }
 
 .bg-dark-custom {
   background-color: var(--bg-dark) !important;
 }
-
+.bg-light-custom {
+  background-color: var(--bg-light)!important;
+}
 
 ul {
   list-style-type: none;

@@ -341,7 +341,7 @@ export default function DashBoardForm({}: Props) {
           </form>
         </div>
         <div className="col-12 col-md-5 col-lg-3">
-          <Card img={preview} />
+          <Card img={preview} watchData={watch}/>
           {/* {selectedFile &&  <img src={preview} /> } */}
         </div>
       </div>

@@ -1,19 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Watch } from "../../interfaces/interfaces";
+import styles from "./card.module.css";
 
 interface Props{
-    id?:number
-    img?:string
+  img?:string
+    watchData:Watch
 }
-export default function Card({id,img}:Props) {
+export default function Card({watchData}:Props) {
     return (
-        <div className="card rounded-0">
-            <Link  to={id? `details/${id}`:''}>
-            <img src={img? img :"https://via.placeholder.com/400x300"} className="rounded-0 card-img-top" alt="..."/>
-            <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.</p>
+        <div className={`${styles.card} rounded-0 bg-white`} >
+            <Link  to={watchData.id? `details/${watchData.id}`:''}>
+            <img src={watchData.attributes.img? watchData.attributes.img :"https://via.placeholder.com/400x300"} className="rounded-0 card-img-top" alt="..."/>
+            <div className="card-body text-center py-3">
+                <h5 className="text-secondary fs-4 fw-light">{watchData.attributes.model}</h5>
+                <h6 className="text-secondary fs-4 fw-light">{watchData.attributes.maker}</h6>
+                <small className="text-secondary  fw-light">{watchData.attributes.referenceNumber}</small>
+                <h3 className="fs-3 my-4 ">{watchData.attributes.price}</h3>
             </div>
            
             </Link>

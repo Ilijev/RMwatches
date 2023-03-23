@@ -1,0 +1,15 @@
+.card {
+    min-width:300px;
+}
+.card img {
+    height: 350px;
+}
+
+@media  (max-width:525px) {
+    .card{
+        min-width: auto;
+    }
+    .card img {
+        height: auto
+    };
+}

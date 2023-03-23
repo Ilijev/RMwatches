@@ -13,15 +13,19 @@ export default function Products({}: Props) {
   const [toggleModel, setToggleModel] = useState<boolean>(true);
  
   useEffect(() => {
-    fetch("http://localhost:3004/watches")
+    fetch("http://localhost:1337/api/watches")
       .then((res) => res.json())
-      .then((data) => setWatches(data));
+      .then((data) => {setWatches(data.data)
+      console.log(data);
+      
+      });
   }, []);
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid h-100 bg-light-custom ">
+      {!watches && <p>Loading</p> }
       {watches && watches.length && (
-        <div className="row py-4">
+        <div className="row py-4 ">
           <div className="col px-md-3 py-3">
             <div className={` ${toggleMenu ? "" : styles.hideFilter}`}>
               <div className="d-flex justify-content-between">
@@ -81,7 +85,7 @@ export default function Products({}: Props) {
               {watches.map((watch, index) => {
                 return (
                   <div key={index} className="col-sm-6 col-md-6 col-lg-4 py-2">
-                    <Card id={watch.id} />
+                    <Card watchData={watch}/>
                   </div>
                 );
               })}
