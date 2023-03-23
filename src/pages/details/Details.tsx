@@ -35,9 +35,9 @@ export default function Details({}: Props) {
     },
   ];
   useEffect(() => {
-    fetch("http://localhost:3004/watches")
+    fetch("http://localhost:1337/api/watches")
       .then((res) => res.json())
-      .then((data) => setWatches(data));
+      .then((data) => setWatches(data.data));
   }, []);
 
   useEffect(() => {
