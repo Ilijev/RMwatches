@@ -1,7 +1,7 @@
 export interface Watch {
     id?: number;
     attributes: {
-        code: number;
+        code: string;
         model: string;
         maker: string;
         price: number
@@ -18,6 +18,7 @@ export interface Watch {
         dateCreated?: string;
         dateLastUpdate?: string;
         creator?: number;
-        img?:string
+        img? : string;
+        imgLinks?: Object;
     }
 }
