@@ -35,11 +35,18 @@ export default function DashBoardLanding({}: Props) {
     setFiltered(
       watches?.filter(
         (item) =>
-        item.attributes.referenceNumber && item.attributes.referenceNumber.toLowerCase().includes(e.target.value.toLowerCase()) 
-          ||
-          item.attributes.model && item.attributes.model.toLowerCase().includes(e.target.value.toLowerCase()) 
-          ||
-          item.attributes.maker && item.attributes.maker.toLowerCase().includes(e.target.value.toLowerCase())
+          (item.attributes.referenceNumber &&
+            item.attributes.referenceNumber
+              .toLowerCase()
+              .includes(e.target.value.toLowerCase())) ||
+          (item.attributes.model &&
+            item.attributes.model
+              .toLowerCase()
+              .includes(e.target.value.toLowerCase())) ||
+          (item.attributes.maker &&
+            item.attributes.maker
+              .toLowerCase()
+              .includes(e.target.value.toLowerCase()))
       )
     );
   }
@@ -55,10 +62,20 @@ export default function DashBoardLanding({}: Props) {
               placeholder="Search Watches"
             />
           </div>
+         
           <div className="col-1 d-none d-lg-block align-self-end">
             <button className="btn" onClick={() => navigate(-1)}>
               Go Back
             </button>{" "}
+          </div>
+        </div>
+        <div className="row  ">
+          <div className="col-2 ">
+          
+            <Link to='form' className="btn btn-success ">
+              Add new watch 
+            </Link>{" "}
+          
           </div>
         </div>
         {filtered &&
@@ -69,7 +86,8 @@ export default function DashBoardLanding({}: Props) {
             >
               <div className="col-12 col-sm-4 col-md-3  col-xl-2 mb-2 mb-sm-0">
                 <img
-                  src="https://via.placeholder.com/400x300"
+                  // src="https://via.placeholder.com/400x300"
+                  src={"http://localhost:1337" + watch.attributes.img}
                   alt=""
                   className={`${styles.imgStyle} `}
                 />
