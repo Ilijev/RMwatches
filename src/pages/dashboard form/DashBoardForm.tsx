@@ -3,6 +3,7 @@ import Card from "../../components/card/card";
 import {Watch} from "../../interfaces/interfaces";
 import styles from "./dashBoardFormStyles.module.css";
 import {useNavigate, useParams} from "react-router-dom";
+import FormImages from "../../components/form img component/FormImages";
 
 type Props = {};
 
@@ -30,7 +31,6 @@ export default function DashBoardForm({}: Props) {
             condition: "",
             description: "",
         }
-        // tuka img:"" fale i trgni go gore Watch stay any za erroro
     });
 
     useEffect(() => {
@@ -72,9 +72,9 @@ export default function DashBoardForm({}: Props) {
             .then((response) => response.json())
             .then(res =>{
                 let imgLinks = res.map((img: any) => img.url);
-                watch.attributes.img = imgLinks[0];
-                watch.attributes.imgLinks = imgLinks;
-
+                // watch.attributes.img = imgLinks[0];
+                // watch.attributes.imgLinks = imgLinks;
+                console.log(imgLinks)
                 setWatch({
                     ...watch, attributes: {
                         ...watch.attributes,
@@ -82,22 +82,35 @@ export default function DashBoardForm({}: Props) {
                         imgLinks: imgLinks
                     }
                 })
-
+                
                 fetch(`http://localhost:1337/api/watches${id ? `/${id}` : ""}`, {
                     // Adding method type
                     method: id ? "PUT" : "POST",
                     headers: { "Content-Type": "application/json" },
                     // Adding body or contents to send
-                    body: JSON.stringify({data: watch.attributes})
+                    body: JSON.stringify({data: watch})
                 }).then(r => console.log(r));
             })
             .catch((error) => {
                 //handle error
+                console.log(error)
             })
 
 
     }
+function handelImgDelete(item:string){
+    console.log(watch.attributes.price);
+    setWatch({
+        ...watch, attributes: {
+            ...watch.attributes,
+            
+            imgLinks:watch.attributes.imgLinks &&  Object.values(watch.attributes.imgLinks).filter(str=> str != item)
+        }
+    })
+console.log(watch.attributes.imgLinks &&  Object.values(watch.attributes.imgLinks).filter(str=> str != item) )
+console.log(watch.attributes.imgLinks ,"treto");
 
+}
     return (
         <div className="container-fluid">
             <div className="row">
@@ -382,6 +395,13 @@ export default function DashBoardForm({}: Props) {
                                     className="form-control shadow-none -file "
                                 />
                             </div>
+                            { watch && watch.attributes.imgLinks && Object.values(watch.attributes.imgLinks).map(item=>(
+
+                            <div key={item} onClick={()=>handelImgDelete(item)}  className="form-group my-2  col-lg-6">
+                            <FormImages img={"http://localhost:1337"+watch.attributes.img}/>
+                            <p>{item}</p>
+                            </div>
+                            ))}
                             <div className="my-2 col-12">
                                 <input
                                     type="checkbox"
