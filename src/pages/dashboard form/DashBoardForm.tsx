@@ -30,6 +30,8 @@ export default function DashBoardForm({}: Props) {
             year: 0,
             condition: "",
             description: "",
+            img: "",
+            imgLinks: []
         }
     });
 
@@ -46,7 +48,7 @@ export default function DashBoardForm({}: Props) {
             setPreview(preview);
         }
 
-        if(selectedFile[0]){
+        if (selectedFile[0]) {
             setPreview(URL.createObjectURL(selectedFile[0]));
         }
     }, [selectedFile]);
@@ -70,47 +72,53 @@ export default function DashBoardForm({}: Props) {
             body: formData
         })
             .then((response) => response.json())
-            .then(res =>{
+            .then(res => {
+                setSelectedFile([]);
                 let imgLinks = res.map((img: any) => img.url);
-                // watch.attributes.img = imgLinks[0];
-                // watch.attributes.imgLinks = imgLinks;
-                console.log(imgLinks)
+                if(!watch.attributes.img){
+                    watch.attributes.img = imgLinks[0];
+                    watch.attributes.imgLinks = imgLinks;
+                }else{
+                    watch.attributes.imgLinks = imgLinks.concat(watch.attributes.imgLinks);
+                }
+
                 setWatch({
                     ...watch, attributes: {
                         ...watch.attributes,
-                        img: imgLinks[0],
-                        imgLinks: imgLinks
+                        img: watch.attributes.img,
+                        imgLinks: watch.attributes.imgLinks
                     }
                 })
-                
+
                 fetch(`http://localhost:1337/api/watches${id ? `/${id}` : ""}`, {
                     // Adding method type
                     method: id ? "PUT" : "POST",
-                    headers: { "Content-Type": "application/json" },
+                    headers: {"Content-Type": "application/json"},
                     // Adding body or contents to send
-                    body: JSON.stringify({data: watch})
-                }).then(r => console.log(r));
+                    body: JSON.stringify({data: watch.attributes})
+                }).then(() => console.log("success"));
             })
             .catch((error) => {
                 //handle error
                 console.log(error)
             })
 
+    }
+
+    function handelImgDelete(item: string) {
+        console.log(watch.attributes.price);
+        setWatch({
+            ...watch, attributes: {
+                ...watch.attributes,
+
+                imgLinks: watch.attributes.imgLinks && Object.values(watch.attributes.imgLinks).filter(str => str != item)
+            }
+        })
+        console.log(watch.attributes.imgLinks && Object.values(watch.attributes.imgLinks).filter(str => str != item))
+        console.log(watch.attributes.imgLinks, "treto");
 
     }
-function handelImgDelete(item:string){
-    console.log(watch.attributes.price);
-    setWatch({
-        ...watch, attributes: {
-            ...watch.attributes,
-            
-            imgLinks:watch.attributes.imgLinks &&  Object.values(watch.attributes.imgLinks).filter(str=> str != item)
-        }
-    })
-console.log(watch.attributes.imgLinks &&  Object.values(watch.attributes.imgLinks).filter(str=> str != item) )
-console.log(watch.attributes.imgLinks ,"treto");
 
-}
     return (
         <div className="container-fluid">
             <div className="row">
@@ -395,12 +403,13 @@ console.log(watch.attributes.imgLinks ,"treto");
                                     className="form-control shadow-none -file "
                                 />
                             </div>
-                            { watch && watch.attributes.imgLinks && Object.values(watch.attributes.imgLinks).map(item=>(
+                            {watch && watch.attributes.imgLinks && Object.values(watch.attributes.imgLinks).map(item => (
 
-                            <div key={item} onClick={()=>handelImgDelete(item)}  className="form-group my-2  col-lg-6">
-                            <FormImages img={"http://localhost:1337"+watch.attributes.img}/>
-                            <p>{item}</p>
-                            </div>
+                                <div key={item} onClick={() => handelImgDelete(item)}
+                                     className="form-group my-2  col-lg-6">
+                                    <FormImages img={"http://localhost:1337" + item}/>
+                                    <p>{item}</p>
+                                </div>
                             ))}
                             <div className="my-2 col-12">
                                 <input

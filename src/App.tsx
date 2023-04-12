@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Navigation from './components/Naviagtion';
 import {Route, Routes} from 'react-router-dom';
@@ -14,36 +14,54 @@ import DashBoardForm from './pages/dashboard form/DashBoardForm';
 import CookiesBanner from './components/handle cookies/CookiesBanner';
 import DashBoardLanding from './pages/dash board landing/DashBoardLanding';
 import LoginForm from './pages/logInForm/LogInForm';
+import GuardedRoute from "./components/GuardedRoute/GuardedRoute";
 
 function App() {
-  const [showBanner, setShowBanner] = useState(false);
-  return (
-    <div className='container-fluid p-0 '>
-      <div className="row p-0 m-0">
-        <div className="col p-0">
-      
-    <Navigation/>
-    <CallButton/>
-    <CookiesBanner handleCookies={setShowBanner} showBanner={showBanner}/>
-    
-      <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/products' element={<Products/>} />
-        <Route path='/products/details/:id' element={<Details/>} />
-        <Route path='/details/:id' element={<Details  />} />
-        <Route path='/about' element={<AboutUs  />} />
-        <Route path='/contact' element={<Contact  />} />
-        <Route path='/dashboard' element={<DashBoardLanding />} />
-        <Route path='/dashboard/form' element={<DashBoardForm  />} />
-        <Route path='/dashboard/form/:id' element={<DashBoardForm  />} />
-        <Route path='/login' element={<LoginForm  />} />
-        <Route path='*' element={<NotFound/>} />
-      </Routes>
-      <Footer/>
-    </div>
-    </div>
-    </div>
-  );
+    const [showBanner, setShowBanner] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    React.useEffect(() => {
+        try {
+            fetch('http://localhost:1337/api/users/me')
+                .then((response) => {
+                  setIsAuthenticated(true);
+                })
+                .catch(() => {
+                  setIsAuthenticated(false);
+                    sessionStorage.removeItem('jwt')
+                })
+        } catch (error) {
+            console.log(error)
+        }
+    }, [])
+
+    return (
+        <div className='container-fluid p-0 '>
+            <div className="row p-0 m-0">
+                <div className="col p-0">
+
+                    <Navigation/>
+                    <CallButton/>
+                    <CookiesBanner handleCookies={setShowBanner} showBanner={showBanner}/>
+
+                    <Routes>
+                        <Route path='/' element={<Home/>}/>
+                        <Route path='/products' element={<Products/>}/>
+                        <Route path='/products/details/:id' element={<Details/>}/>
+                        <Route path='/details/:id' element={<Details/>}/>
+                        <Route path='/about' element={<AboutUs/>}/>
+                        <Route path='/contact' element={<Contact/>}/>
+                        <Route path='/dashboard' element={<DashBoardLanding/>}/>
+                        <GuardedRoute path='/dashboard/form' component={<DashBoardForm/>} auth={isAuthenticated}/>
+                        <Route path='/dashboard/form/:id' element={<DashBoardForm/>}/>
+                        <Route path='/login' element={<LoginForm/>}/>
+                        <Route path='*' element={<NotFound/>}/>
+                    </Routes>
+                    <Footer/>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default App;
