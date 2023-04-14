@@ -13,14 +13,15 @@ export default function Navigation({}: Props) {
       <Container fluid>
         
         <NavLink className={`navbar-brand logoStyle`} to="/">
-          <img src={require("../images/rmLogoHorizontalBlack.jpg")} alt="RM logo" />
+          <img src={require("../images/rmLogoBlack.png")} alt="RM logo" />
         </NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
           <Nav className="text-center align-items-center">
-            <NavLink className='nav-link text-white hover-underline-animation' to="products">Products</NavLink>
+            <NavLink className='nav-link text-white hover-underline-animation' to="products">Shop</NavLink>
             <NavLink className='nav-link text-white hover-underline-animation' to="contact">Sell your watch</NavLink>
-            <NavLink className="nav-link text-white hover-underline-animation" to="about">About</NavLink>
+            <NavLink className='nav-link text-white hover-underline-animation' to="service">Watch Service</NavLink>
+            <NavLink className="nav-link text-white hover-underline-animation" to="about">About us</NavLink>
             <ChangeLanguage/>
           </Nav>
         </Navbar.Collapse>

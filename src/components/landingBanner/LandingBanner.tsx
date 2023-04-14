@@ -2,7 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import styles from './landingBanner.module.css'
 function LandingBanner() {
   return (
-    <Carousel controls={false} indicators={false}>
+    <Carousel controls={false} indicators={true}>
       <Carousel.Item interval={1000}>
         <img
           className={`d-block w-100 ${styles.carouselImg} `} src={require("../../images/thumbnail1.jpg")}

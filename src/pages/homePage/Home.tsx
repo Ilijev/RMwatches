@@ -26,17 +26,17 @@ export default function Home({}: Props) {
       <LandingBanner />
       <div className="container">
         <div className="row py-3 justify-content-between">
-          <div className="col-6">
-            <h3>OUR LAST PRODUCTS</h3>
+          <div className="col-6 mx-auto text-center ">
+            <h3 className="fs-1 mb-0">New Arrivals</h3>
           </div>
-          <div className="col-4">
+          {/* <div className="col-4">
             <select className="form-select" aria-label="Default select">
               <option>Default</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
             </select>
-          </div>
+          </div> */}
         </div>
         {watches && (
           <div className="row py-3">

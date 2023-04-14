@@ -24,8 +24,9 @@ export default function Contact({}: Props) {
   }
   return (
     <div className="container-fluid text-center  p-sm-5">
-      <h4>Contact us </h4>
-      <h1 className="fs-1">Let's talk about watches </h1>
+      
+      <h1 className="fs-2">Sell your watch with confidence </h1>
+      <h1 className="fs-1">Your privacy and security are our top priority</h1>
       <form onSubmit={handleSubmit} className="p-md-5">
         <div className="row">
           <div className="col-12 mx-auto col-md-8">
@@ -79,7 +80,7 @@ export default function Contact({}: Props) {
                   value={data.maker}
                   onChange={(e) => setData({ ...data, maker: e.target.value })}
                   className="form-control shadow-none"
-                  placeholder="Watch Maker "
+                  placeholder="Watch Brand"
                 />
               </div>
               <div className="col-12 col-md-8  p-2 ">
@@ -89,7 +90,37 @@ export default function Contact({}: Props) {
                   value={data.model}
                   onChange={(e) => setData({ ...data, model: e.target.value })}
                   className="form-control shadow-none"
-                  placeholder="Watch Model "
+                  placeholder="Model "
+                />
+              </div>
+              <div className="col-12 col-md-8  p-2 ">
+                <input
+                  // required
+                  type="text"
+                  // value={data.model}
+                  // onChange={(e) => setData({ ...data, model: e.target.value })}
+                  className="form-control shadow-none"
+                  placeholder="Reference number "
+                />
+              </div>
+              <div className="col-12 col-md-4  p-2 ">
+                <input
+                  // required
+                  type="text"
+                  value={data.maker}
+                  onChange={(e) => setData({ ...data, maker: e.target.value })}
+                  className="form-control shadow-none"
+                  placeholder="Production Year"
+                />
+              </div>
+              <div className="col-12 col-md-4  p-2 ">
+                <input
+                  // required
+                  type="text"
+                  value={data.maker}
+                  onChange={(e) => setData({ ...data, maker: e.target.value })}
+                  className="form-control shadow-none"
+                  placeholder="Price"
                 />
               </div>
               <div className="col-12 p-2">
@@ -101,8 +132,24 @@ export default function Contact({}: Props) {
                   cols={10}
                   rows={3}
                   className=" shadow-none   form-control"
-                  placeholder="Tell us the subject of your interests."
+                  placeholder="Message"
                 ></textarea>
+              </div>
+             
+              <div className="col-12 d-flex">
+                <input
+                  // required
+                  type="checkbox"
+                  name=""
+                  id="boxInfo"
+                  // checked={data.checkBox}
+                  // onChange={(e) =>
+                  //   setData({ ...data, checkBox: e.target.checked })
+                  // }
+                />
+                <label htmlFor="boxInfo" className="fw-light px-2">
+                Original Box
+                </label>
               </div>
               <div className="col-12 d-flex">
                 <input
@@ -116,7 +163,22 @@ export default function Contact({}: Props) {
                   // }
                 />
                 <label htmlFor="contactInfo" className="fw-light px-2">
-                  I agree with sending my contact Information to RMWatches to be
+                  Original Papers
+                </label>
+              </div>
+              <div className="col-12 d-flex">
+                <input
+                  // required
+                  type="checkbox"
+                  name=""
+                  id="contactInfo"
+                  // checked={data.checkBox}
+                  // onChange={(e) =>
+                  //   setData({ ...data, checkBox: e.target.checked })
+                  // }
+                />
+                <label htmlFor="contactInfo" className="fw-light px-2">
+                  I agree with sending my contact Information to RM Watches Munich to be
                   contacted.
                 </label>
               </div>

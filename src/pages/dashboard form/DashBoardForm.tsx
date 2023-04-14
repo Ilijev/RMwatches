@@ -102,6 +102,7 @@ export default function DashBoardForm({}: Props) {
                 //handle error
                 console.log(error)
             })
+            navigate("/dashboard")
 
     }
 
@@ -155,7 +156,7 @@ export default function DashBoardForm({}: Props) {
                                 />
                             </div>
                             <div className="form-group my-2 col-12 col-lg-6">
-                                <label htmlFor="watchMaker">Watch Maker</label>
+                                <label htmlFor="watchMaker">Brand</label>
                                 <input
                                     type="text"
                                     defaultValue={watch.attributes.maker}

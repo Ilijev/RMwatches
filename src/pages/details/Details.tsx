@@ -16,6 +16,7 @@ export default function Details({}: Props) {
   const [filteredWatch, setFilteredWatch] = useState<Watch>();
   const navigate = useNavigate();
   const [images, setImages] = useState<any>([]);
+  const [descToggle, setDescToggle] = useState(true)
   const baseURL = "http://localhost:1337" 
   
   useEffect(() => {
@@ -28,12 +29,15 @@ export default function Details({}: Props) {
   }, []);
 
   useEffect(() => {
-   
-   watches && watches.attributes.imgLinks && Object.values(watches.attributes.imgLinks).map((item: any) => {
+   let imgArray :any =[]
+   watches && watches.attributes.imgLinks && Object.values(watches.attributes.imgLinks).forEach((item: any) => {
        
-      setImages([{...images,  original:'http://localhost:1337' + item, thumbnail:'http://localhost:1337' + item }])
+    // setImages([...images,  {original:'http://localhost:1337' + item, thumbnail:'http://localhost:1337' + item} ])
+   imgArray.push( {original:'http://localhost:1337' + item, thumbnail:'http://localhost:1337' + item} )
    
+       console.log(item)
     });
+    setImages(imgArray)
   }, [watches]);
 
   return (
@@ -168,7 +172,7 @@ export default function Details({}: Props) {
               <div className="row">
                 <AlertWithForm />
               </div>
-              <div className="row mt-4">
+              {/* <div className="row mt-4">
                 <div className="col">
                   <div className="accordion " id="accordionExample">
                     <div className="accordion-item">
@@ -247,6 +251,12 @@ export default function Details({}: Props) {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div> */}
+              <div className="row">
+                <div onClick={()=>setDescToggle(!descToggle)} className="col-12 border-bottom px-3 py-2">
+                  <h5 className=" fs-4" >Description {descToggle?<i className="fa-sharp fa-solid fa-chevron-up"></i>:<i className="fa-sharp fa-solid fa-chevron-down"></i>}</h5>
+              <p className={` ${descToggle?"d-block": "d-none"}`}>{watches.attributes.description}</p>
                 </div>
               </div>
             </div>

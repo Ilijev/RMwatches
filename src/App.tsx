@@ -52,11 +52,12 @@ function App() {
                         <Route path='/about' element={<AboutUs/>}/>
                         <Route path='/contact' element={<Contact/>}/>
                         <Route path='/dashboard' element={<DashBoardLanding/>}/>
-                        <GuardedRoute path='/dashboard/form' component={<DashBoardForm/>} auth={isAuthenticated}/>
+                        <Route path='/dashboard/form' element={<DashBoardForm/>}/>
                         <Route path='/dashboard/form/:id' element={<DashBoardForm/>}/>
                         <Route path='/login' element={<LoginForm/>}/>
                         <Route path='*' element={<NotFound/>}/>
                     </Routes>
+                        {/* <GuardedRoute path='/dashboard/form' component={<DashBoardForm/>} auth={isAuthenticated}/> */}
                     <Footer/>
                 </div>
             </div>

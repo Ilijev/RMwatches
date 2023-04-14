@@ -10,6 +10,7 @@ export default function DashBoardLanding({}: Props) {
   const [watches, setWatches] = useState<Watch[]>();
   const [filtered, setFiltered] = useState<Watch[]>();
   const navigate = useNavigate();
+
   async function fetchWatches() {
     // const res = await fetch("http://localhost:3004/watches");
     const res = await fetch("http://localhost:1337/api/watches");
@@ -25,6 +26,7 @@ export default function DashBoardLanding({}: Props) {
   useEffect(() => {
     fetchWatches();
   }, []);
+
   useEffect(() => {
     setFiltered(watches);
     // console.log(watches)
@@ -49,6 +51,13 @@ export default function DashBoardLanding({}: Props) {
               .includes(e.target.value.toLowerCase()))
       )
     );
+  }
+
+  function deleteWatch(id:any){
+    fetch(`http://localhost:1337/api/watches/${id}`, { method: 'DELETE' })
+    .then((res) => console.log(res));
+    setFiltered(filtered?.filter(item=>item.id !== id))
+    console.log(id)
   }
   return (
     <>
@@ -117,7 +126,7 @@ export default function DashBoardLanding({}: Props) {
                   Edit
                 </Link>
 
-                <button className="btn  mb-2 mx-2 btn-danger px-3">
+                <button onClick={()=>deleteWatch(watch.id)} className="btn  mb-2 mx-2 btn-danger px-3">
                   Delete
                 </button>
               </div>
