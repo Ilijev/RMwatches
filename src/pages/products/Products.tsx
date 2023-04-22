@@ -59,7 +59,7 @@ export default function Products({}: Props) {
                     </button>
                   ))}
 
-                  <button className="btn w-100 text-start">Omega</button>
+              
                 </div>
               </div>
               <div className={`${toggleModel ? styles.hideFilter : ""}`}>

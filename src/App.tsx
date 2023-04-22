@@ -14,7 +14,8 @@ import DashBoardForm from './pages/dashboard form/DashBoardForm';
 import CookiesBanner from './components/handle cookies/CookiesBanner';
 import DashBoardLanding from './pages/dash board landing/DashBoardLanding';
 import LoginForm from './pages/logInForm/LogInForm';
-import GuardedRoute from "./components/GuardedRoute/GuardedRoute";
+import WatchService from './pages/watch service/WatchService';
+import AuthChecker from './components/GuardedRoute/AuthChecker';
 
 function App() {
     const [showBanner, setShowBanner] = useState(false);
@@ -51,11 +52,13 @@ function App() {
                         <Route path='/details/:id' element={<Details/>}/>
                         <Route path='/about' element={<AboutUs/>}/>
                         <Route path='/contact' element={<Contact/>}/>
-                        <Route path='/dashboard' element={<DashBoardLanding/>}/>
-                        <Route path='/dashboard/form' element={<DashBoardForm/>}/>
+                        <Route path='/service' element={<WatchService/>}/>
+                        {/* <Route path='/dashboard' element={<DashBoardLanding/>}/> */}
+                        <Route path='/dashboard/form' element={<AuthChecker><DashBoardForm /></AuthChecker>}/>
                         <Route path='/dashboard/form/:id' element={<DashBoardForm/>}/>
                         <Route path='/login' element={<LoginForm/>}/>
                         <Route path='*' element={<NotFound/>}/>
+                        <Route path="/dashboard" element={<AuthChecker><DashBoardLanding /></AuthChecker>} />
                     </Routes>
                         {/* <GuardedRoute path='/dashboard/form' component={<DashBoardForm/>} auth={isAuthenticated}/> */}
                     <Footer/>

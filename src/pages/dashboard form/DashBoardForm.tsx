@@ -258,7 +258,7 @@ export default function DashBoardForm({}: Props) {
                                 />
                             </div>
                             <div className="form-group my-2 col-12 col-lg-6">
-                                <label htmlFor="watchMaterial">Watch Material Type</label>
+                                <label htmlFor="watchMaterial">Case Material Type</label>
                                 <input
                                     type="text"
                                     defaultValue={watch.attributes.material}

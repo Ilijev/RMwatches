@@ -190,7 +190,7 @@ const AlertWithForm = () => {
     return (
         <button onClick={stepOne}
                 className="btn-block col-6 mx-auto btn bg-custom text-uppercase fs-5 fw-light bg-dark-custom text-white">
-            Request information
+            Buy Watch
         </button>
     );
 }
