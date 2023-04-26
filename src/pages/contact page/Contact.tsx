@@ -113,7 +113,7 @@ export default function Contact({}: Props) {
                   placeholder="Production Year"
                 />
               </div>
-              <div className="col-12 col-md-4  p-2 ">
+              <div className="col-12   p-2 ">
                 <input
                   // required
                   type="text"
@@ -136,7 +136,7 @@ export default function Contact({}: Props) {
                 ></textarea>
               </div>
              
-              <div className="col-12 d-flex">
+              <div className="col d-flex">
                 <input
                   // required
                   type="checkbox"
@@ -151,19 +151,34 @@ export default function Contact({}: Props) {
                 Original Box
                 </label>
               </div>
-              <div className="col-12 d-flex">
+              <div className="col d-flex">
                 <input
                   // required
                   type="checkbox"
                   name=""
-                  id="contactInfo"
+                  id="originalPapers"
                   // checked={data.checkBox}
                   // onChange={(e) =>
                   //   setData({ ...data, checkBox: e.target.checked })
                   // }
                 />
-                <label htmlFor="contactInfo" className="fw-light px-2">
+                <label htmlFor="originalPapers" className="fw-light px-2">
                   Original Papers
+                </label>
+              </div>
+              <div className="col d-flex">
+                <input
+                  // required
+                  type="checkbox"
+                  name=""
+                  id="notOriginalBox"
+                  // checked={data.checkBox}
+                  // onChange={(e) =>
+                  //   setData({ ...data, checkBox: e.target.checked })
+                  // }
+                />
+                <label htmlFor="notOriginalBox" className="fw-light px-2">
+                  Not Original Box
                 </label>
               </div>
               <div className="col-12 d-flex">
