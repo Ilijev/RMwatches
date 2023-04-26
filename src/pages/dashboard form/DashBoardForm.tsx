@@ -105,9 +105,8 @@ export default function DashBoardForm({}: Props) {
             navigate("/dashboard")
 
     }
-
+  
     function handelImgDelete(item: string) {
-        console.log(watch.attributes.price);
         setWatch({
             ...watch, attributes: {
                 ...watch.attributes,
@@ -115,8 +114,7 @@ export default function DashBoardForm({}: Props) {
                 imgLinks: watch.attributes.imgLinks && Object.values(watch.attributes.imgLinks).filter(str => str != item)
             }
         })
-        console.log(watch.attributes.imgLinks && Object.values(watch.attributes.imgLinks).filter(str => str != item))
-        console.log(watch.attributes.imgLinks, "treto");
+       
 
     }
 
@@ -404,7 +402,7 @@ export default function DashBoardForm({}: Props) {
                                     className="form-control shadow-none -file "
                                 />
                             </div>
-                            {watch && watch.attributes.imgLinks && Object.values(watch.attributes.imgLinks).map(item => (
+                            {watch.attributes.imgLinks && Object.values(watch.attributes.imgLinks).map(item => (
 
                                 <div key={item} onClick={() => handelImgDelete(item)}
                                      className="form-group my-2  col-lg-6">
