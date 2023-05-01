@@ -88,7 +88,7 @@ export default function Details({}: Props) {
                   {new Intl.NumberFormat("de-DE", {
                     style: "currency",
                     currency: "EUR",
-                  }).format(watches?.attributes.price)}
+                  }).format(watches?.attributes.price || 0)}
                 </p>
               </div>
               <div className="row my-5">
@@ -113,10 +113,18 @@ export default function Details({}: Props) {
                       </tr>
                       <tr>
                         <th scope="row" className=" px-2 pb-3">
+                          Papers
+                        </th>
+                        <td className="text-end px-2 pb-3">
+                          {watches.attributes.papers}
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" className=" px-2 pb-3">
                           Box
                         </th>
                         <td className="text-end px-2 pb-3">
-                          {watches.attributes.boxPapers ? "Yes" : "No"}
+                          {watches.attributes.box}
                         </td>
                       </tr>
                       <tr>

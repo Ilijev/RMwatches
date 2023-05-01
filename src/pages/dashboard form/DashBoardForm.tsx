@@ -26,12 +26,14 @@ export default function DashBoardForm({}: Props) {
             diameter: 0,
             colorDial: "",
             watchBand: "",
-            boxPapers: false,
+            papers: "",
+            box: "",
             year: 0,
             condition: "",
             description: "",
             img: "",
-            imgLinks: []
+            imgLinks: [],
+            published:false
         }
     });
 
@@ -51,6 +53,9 @@ export default function DashBoardForm({}: Props) {
         if (selectedFile[0]) {
             setPreview(URL.createObjectURL(selectedFile[0]));
         }
+        let links = selectedFile.map((item: any) => URL.createObjectURL(item));
+        watch.attributes.imgLinks = links;
+        setWatch(watch)
     }, [selectedFile]);
 
     const onSelectFile = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -100,7 +105,14 @@ export default function DashBoardForm({}: Props) {
             })
             .catch((error) => {
                 //handle error
-                console.log(error)
+                fetch(`http://localhost:1337/api/watches${id ? `/${id}` : ""}`, {
+                    // Adding method type
+                    method: id ? "PUT" : "POST",
+                    headers: {"Content-Type": "application/json"},
+                    // Adding body or contents to send
+                    body: JSON.stringify({data: watch.attributes})
+                }).then(() => console.log("success"));
+                console.log(error, ' ERROR !!!')
             })
             navigate("/dashboard")
 
@@ -122,7 +134,7 @@ export default function DashBoardForm({}: Props) {
         <div className="container-fluid">
             <div className="row">
                 <div className="col-1 d-none d-lg-block mx-3 mt-3">
-                    <button className="btn" onClick={() => navigate(-1)}>Go Back</button>
+                    <button className="btn" onClick={() => navigate("/dashboard")}>Go Back</button>
                 </div>
             </div>
             <div className="row p-4">
@@ -375,6 +387,46 @@ export default function DashBoardForm({}: Props) {
                                     }
                                 />
                             </div>
+                         
+                           
+                            <div className="my-2 col-6">
+                                <label htmlFor="watchPapers" className="mx-2">
+                                    Papers
+                                </label>
+                                <input
+                                    type="text"
+                                    defaultValue={watch.attributes.papers}
+                                    className=""
+                                    id="watchPapers"
+                                    onChange={(e) =>
+                                        setWatch({
+                                            ...watch, attributes: {
+                                                ...watch.attributes,
+                                                papers: e.target.value
+                                            }
+                                        })
+                                    }
+                                />
+                            </div>
+                            <div className="my-2 col-6">
+                                <label htmlFor="watchBox" className="mx-2">
+                                    Box
+                                </label>
+                                <input
+                                    type="text"
+                                    defaultValue={watch.attributes.box}
+                                    className=""
+                                    id="watchBox"
+                                    onChange={(e) =>
+                                        setWatch({
+                                            ...watch, attributes: {
+                                                ...watch.attributes,
+                                                box: e.target.value
+                                            }
+                                        })
+                                    }
+                                />
+                            </div>
                             <div className="form-group my-2 col-12 col-lg-6">
                                 <label htmlFor="watchDescription">Watch Description</label>
                                 <textarea
@@ -403,32 +455,20 @@ export default function DashBoardForm({}: Props) {
                                 />
                             </div>
                             {watch.attributes.imgLinks && Object.values(watch.attributes.imgLinks).map(item => (
-
-                                <div key={item} onClick={() => handelImgDelete(item)}
+                                <div key={new Date().valueOf()} onClick={() => handelImgDelete(item)}
                                      className="form-group my-2  col-lg-6">
-                                    <FormImages img={"http://localhost:1337" + item}/>
-                                    <p>{item}</p>
+                                        {
+                                            item.includes('blob:') ? 
+                                            <FormImages img={item}/>
+                                            :
+                                            <FormImages img={"http://localhost:1337" + item}/>
+                                        }
+                                        {
+                                            !item.includes('blob:') && <p>{item}</p>
+                                        }
                                 </div>
                             ))}
-                            <div className="my-2 col-12">
-                                <input
-                                    type="checkbox"
-                                    defaultChecked={watch.attributes.boxPapers}
-                                    className=""
-                                    id="watchBoxAndPapers"
-                                    onChange={(e) =>
-                                        setWatch({
-                                            ...watch, attributes: {
-                                                ...watch.attributes,
-                                                boxPapers: e.target.checked
-                                            }
-                                        })
-                                    }
-                                />
-                                <label htmlFor="watchBoxAndPapers" className="mx-2">
-                                    Watch Box And Papers
-                                </label>
-                            </div>
+                           
                             <button className="btn bg-dark-custom text-white">
                                 Create Watch
                             </button>

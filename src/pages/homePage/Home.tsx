@@ -3,7 +3,6 @@ import ImageGallery from "react-image-gallery";
 import LandingBanner from "../../components/landingBanner/LandingBanner";
 import styles from "./homePage.module.css";
 import Card from "../../components/card/card";
-import dummy_data from "../../watches_dummy_data.json";
 import { NavLink } from "react-router-dom";
 import { Watch } from "../../interfaces/interfaces";
 
@@ -42,7 +41,7 @@ export default function Home({}: Props) {
           <div className="row py-3">
             {watches.map((watch, index) => {
               return (
-                <div key={index} className="col-sm-6 col-md-4 py-2">
+                <div key={index} className="col-sm-6 col-md-3 py-2">
                   <Card  watchData={watch} />
                 </div>
               );
