@@ -389,14 +389,16 @@ export default function DashBoardForm({}: Props) {
                             </div>
                          
                            
-                            <div className="my-2 col-6">
+                            <div className="form-group my-2 col-12 col-lg-6">
                                 <label htmlFor="watchPapers" className="mx-2">
                                     Papers
                                 </label>
                                 <input
                                     type="text"
                                     defaultValue={watch.attributes.papers}
-                                    className=""
+                                    className={`form-control shadow-none  ${
+                                        watch?.attributes.papers ? "" : styles.error
+                                    }`}
                                     id="watchPapers"
                                     onChange={(e) =>
                                         setWatch({
@@ -408,14 +410,16 @@ export default function DashBoardForm({}: Props) {
                                     }
                                 />
                             </div>
-                            <div className="my-2 col-6">
+                            <div className="form-group my-2 col-12 col-lg-6">
                                 <label htmlFor="watchBox" className="mx-2">
                                     Box
                                 </label>
                                 <input
                                     type="text"
                                     defaultValue={watch.attributes.box}
-                                    className=""
+                                    className={`form-control shadow-none  ${
+                                        watch?.attributes.box ? "" : styles.error
+                                    }`}
                                     id="watchBox"
                                     onChange={(e) =>
                                         setWatch({

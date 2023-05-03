@@ -9,20 +9,64 @@ export default function Products({}: Props) {
   const [toggleMenu, setToggleMenu] = useState<boolean>(
     window.innerWidth > 769 ? true : false
   );
+  const [filterState, setFilterState] = useState({
+    brend: "",
+    model: "",
+  });
   const [toggleBrands, setToggleBrands] = useState<boolean>(true);
   const [toggleModel, setToggleModel] = useState<boolean>(true);
   const [brands, setBrands] = useState<any>([]);
   const [models, setModels] = useState<any>([]);
+  const [notFound, setNotFound] = useState<boolean>(false);
 
   useEffect(() => {
-    fetch("http://localhost:1337/api/watches")
+    handleFeftch()
+    // fetch(
+    //   "http://localhost:1337/api/watches?filters[published][$eq]=true&pagination[pageSize]=100"
+    // )
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setBrands(
+    //       Array.from(new Set(data.data.map((obj: any) => obj.attributes.maker)))
+    //     );
+    //     setModels(
+    //       Array.from(new Set(data.data.map((obj: any) => obj.attributes.model)))
+    //     );
+    //     setWatches(data.data);
+    //   });
+  }, []);
+
+  useEffect(() => {
+    let URL = "";
+    URL = `http://localhost:1337/api/watches?filters${
+      filterState.brend ? `[maker][$eq]=${filterState.brend}` : ""
+    }${filterState.brend.length && filterState.model.length ? "&filters" : ""}${
+      filterState.model ? `[model][$eq]=${filterState.model}` : ""
+    }&pagination[pageSize]=100`;
+
+    fetch(URL)
       .then((res) => res.json())
-      .then((data) => {      
-        setBrands(Array.from(new Set(data.data.map((obj: any) => obj.attributes.maker))));
-        setModels(Array.from(new Set(data.data.map((obj: any) => obj.attributes.model))));
+      .then((data) => {
+        data.data.length ? setWatches(data.data) : setNotFound(true);
+      })
+      .catch((er) => console.log(er));
+  }, [filterState.brend, filterState.model]);
+
+  function handleFeftch() {
+    fetch(
+      "http://localhost:1337/api/watches?filters[published][$eq]=true&pagination[pageSize]=100"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setBrands(
+          Array.from(new Set(data.data.map((obj: any) => obj.attributes.maker)))
+        );
+        setModels(
+          Array.from(new Set(data.data.map((obj: any) => obj.attributes.model)))
+        );
         setWatches(data.data);
       });
-  }, []);
+  }
 
   return (
     <div className="container-fluid h-100 bg-light-custom ">
@@ -55,11 +99,22 @@ export default function Products({}: Props) {
                 </p>
 
                 <div className="">
-                  {brands.length > 0 && brands?.map((brend: any, idx: number) => (
-                    <button key={idx} className="btn w-100 text-start">
-                      {brend}
-                    </button>
-                  ))}
+                  {brands.length > 0 &&
+                    brands?.map((brend: any, idx: number) => (
+                      <button
+                        value={brend}
+                        onClick={(e) => {
+                          setFilterState({
+                            ...filterState,
+                            brend: e.currentTarget.value,
+                          });
+                        }}
+                        key={idx}
+                        className="btn w-100 text-start"
+                      >
+                        {brend}
+                      </button>
+                    ))}
                 </div>
               </div>
               <div className={`${toggleModel ? styles.hideFilter : ""}`}>
@@ -73,8 +128,19 @@ export default function Products({}: Props) {
                 </p>
 
                 <div className="">
-                  {models.length > 0 && models?.map((model: any, idx: number) => (
-                      <button key={idx} className="btn w-100 text-start">
+                  {models.length > 0 &&
+                    models?.map((model: any, idx: number) => (
+                      <button
+                        value={model}
+                        onClick={(e) => {
+                          setFilterState({
+                            ...filterState,
+                            model: e.currentTarget.value,
+                          });
+                        }}
+                        key={idx}
+                        className="btn w-100 text-start"
+                      >
                         {model}
                       </button>
                     ))}
@@ -83,19 +149,35 @@ export default function Products({}: Props) {
             </div>
           </div>
           <div className="col-md-9 py-3">
-            <div className="row px-3">
-              {watches.map(
-                (watch, index) =>
-                  watch.attributes.published && (
-                    <div
-                      key={index}
-                      className="col-sm-6 col-md-6 col-lg-4 py-2"
-                    >
-                      <Card watchData={watch} />
-                    </div>
-                  )
-              )}
-            </div>
+            {notFound ? (
+              <div className="p-3">
+                <p className="fs-4">We do not have this combination of filters</p>
+                <button
+                className="btn btn-dark"
+                  onClick={()=>{
+                    setFilterState({model:'',brend:''})
+                    handleFeftch()
+                    setNotFound(!notFound)
+                  }}
+                >
+                  Reset FIlters
+                </button>
+              </div>
+            ) : (
+              <div className="row px-3">
+                {watches.map(
+                  (watch, index) =>
+                    watch.attributes.published && (
+                      <div
+                        key={index}
+                        className="col-sm-6 col-md-6 col-lg-4 py-2"
+                      >
+                        <Card watchData={watch} />
+                      </div>
+                    )
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}
