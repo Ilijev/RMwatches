@@ -5,6 +5,7 @@ import styles from "./homePage.module.css";
 import Card from "../../components/card/card";
 import { NavLink } from "react-router-dom";
 import { Watch } from "../../interfaces/interfaces";
+import LandingCard from "../../components/landing page card/LandingCard";
 
 type Props = {};
 
@@ -21,9 +22,9 @@ export default function Home({}: Props) {
   // const [cardsData] = useState(dummy_data.watches.slice(0, 9));
 
   return (
-    <>
+    <div className="bg-light-custom">
       <LandingBanner />
-      <div className="container">
+      <div className="container ">
         <div className="row py-3 justify-content-between">
           <div className="col-6 mx-auto text-center ">
             <h3 className="fs-1 mb-0">New Arrivals</h3>
@@ -38,11 +39,11 @@ export default function Home({}: Props) {
           </div> */}
         </div>
         {watches && (
-          <div className="row py-3">
+          <div className="row py-3   ">
             {watches.map((watch, index) => {
               return (
-                <div key={index} className="col-sm-6 col-md-3 py-2">
-                  <Card  watchData={watch} />
+                <div key={index} className="col-sm-6 col-md-6 col-lg-4    my-2">
+                  <LandingCard watchData={watch} />
                 </div>
               );
             })}
@@ -57,6 +58,6 @@ export default function Home({}: Props) {
           </NavLink>
         </div>
       </div>
-    </>
+    </div>
   );
 }
