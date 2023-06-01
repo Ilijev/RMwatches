@@ -20,7 +20,7 @@ export default function Products({}: Props) {
   const [notFound, setNotFound] = useState<boolean>(false);
 
   useEffect(() => {
-    handleFeftch()
+    handleFeftch();
     // fetch(
     //   "http://localhost:1337/api/watches?filters[published][$eq]=true&pagination[pageSize]=100"
     // )
@@ -54,17 +54,24 @@ export default function Products({}: Props) {
 
   function handleFeftch() {
     fetch(
-      "http://localhost:1337/api/watches?filters[published][$eq]=true&pagination[pageSize]=100"
+      // "http://localhost:1337/api/watches?filters[published][$eq]=true&pagination[pageSize]=100"
+      "https://my-json-server.typicode.com/Ilijev/watchesjson/watches?filters[published][$eq]=true&pagination[pageSize]=100"
     )
       .then((res) => res.json())
       .then((data) => {
+        console.log(
+         data
+        );
         setBrands(
-          Array.from(new Set(data.data.map((obj: any) => obj.attributes.maker)))
+          // Array.from(new Set(data.data.map((obj: any) => obj.attributes.maker)))
+          Array.from(new Set(data.map((obj: any) => obj.attributes.maker)))
         );
         setModels(
-          Array.from(new Set(data.data.map((obj: any) => obj.attributes.model)))
+          // Array.from(new Set(data.data.map((obj: any) => obj.attributes.model)))
+          Array.from(new Set(data.map((obj: any) => obj.attributes.model)))
         );
-        setWatches(data.data);
+        // setWatches(data.data);
+        setWatches(data);
       });
   }
 
@@ -151,13 +158,15 @@ export default function Products({}: Props) {
           <div className="col-md-9 py-3">
             {notFound ? (
               <div className="p-3">
-                <p className="fs-4">We do not have this combination of filters</p>
+                <p className="fs-4">
+                  We do not have this combination of filters
+                </p>
                 <button
-                className="btn btn-dark"
-                  onClick={()=>{
-                    setFilterState({model:'',brend:''})
-                    handleFeftch()
-                    setNotFound(!notFound)
+                  className="btn btn-dark"
+                  onClick={() => {
+                    setFilterState({ model: "", brend: "" });
+                    handleFeftch();
+                    setNotFound(!notFound);
                   }}
                 >
                   Reset FIlters

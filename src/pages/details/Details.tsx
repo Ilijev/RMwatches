@@ -20,7 +20,7 @@ export default function Details({}: Props) {
   const baseURL = "http://localhost:1337" 
   
   useEffect(() => {
-    fetch(`http://localhost:1337/api/watches/${id}`)
+    fetch(`https://my-json-server.typicode.com/Ilijev/watchesjson/watches/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setWatches(data.data);

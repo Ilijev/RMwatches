@@ -12,10 +12,11 @@ type Props = {};
 export default function Home({}: Props) {
   const [watches, setWatches] = useState<Watch[]>();
   useEffect(() => {
-    fetch("http://localhost:1337/api/watches")
+    fetch("https://my-json-server.typicode.com/Ilijev/watchesjson/watches")
       .then((res) => res.json())
       .then((data) => {
-        setWatches(data.data);
+        // setWatches(data.data);
+        setWatches(data);
       });
   }, []);
 
