@@ -3,10 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Watch } from "./../../interfaces/interfaces";
 import ImageGallery from "react-image-gallery";
 import styles from "./details.module.css";
-import image1 from "../../images/thumbnail3.jpg";
-import image2 from "../../images/thumbnail1.jpg";
-import image3 from "../../images/thumbnail2.jpg";
-import image4 from "../../images/rmLogoHorizontalBlack.jpg";
 import AlertWithForm from "../../components/modals/requestForWatch";
 type Props = {};
 
@@ -28,17 +24,17 @@ export default function Details({}: Props) {
       });
   }, []);
 
-  useEffect(() => {
-   let imgArray :any =[]
-   watches && watches.attributes.imgLinks && Object.values(watches.attributes.imgLinks).forEach((item: any) => {
+  // useEffect(() => {
+  //  let imgArray :any =[]
+  //  watches && watches.attributes.imgLinks && Object.values(watches.attributes.imgLinks).forEach((item: any) => {
        
-    // setImages([...images,  {original:'http://localhost:1337' + item, thumbnail:'http://localhost:1337' + item} ])
-   imgArray.push( {original:'https://shielded-depths-59676.herokuapp.com' + item, thumbnail:'https://shielded-depths-59676.herokuapp.com' + item} )
+  //   // setImages([...images,  {original:'http://localhost:1337' + item, thumbnail:'http://localhost:1337' + item} ])
+  //  imgArray.push( {original:'https://shielded-depths-59676.herokuapp.com' + item, thumbnail:'https://shielded-depths-59676.herokuapp.com' + item} )
    
-       console.log(item)
-    });
-    setImages(imgArray)
-  }, [watches]);
+  //      console.log(item)
+  //   });
+  //   setImages(imgArray)
+  // }, [watches]);
 
   return (
     <>
@@ -50,12 +46,12 @@ export default function Details({}: Props) {
         <div className={`container-fluid py-3 ${styles.detailsContainer} `}>
           <div className="row px-md-5  ">
             <div className="col-12 col-md-5  px-3 ">
-              { images  && <p>{JSON.stringify(images)}</p> }
-              { images  && <ImageGallery
+              {/* { images  && <p>{JSON.stringify(images)}</p> } */}
+              {/* { images  && <ImageGallery
                 showPlayButton={false}
                 autoPlay={false}
                 items={images}
-              />}
+              />} */}
             </div>
             <div className="col-12 col-md-7  px-3 py-3">
               <div className="row">
