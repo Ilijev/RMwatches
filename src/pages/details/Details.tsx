@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Watch } from "../../interfaces/interfaces";
 import styles from "./details.module.css";
 import AlertWithForm from "../../components/modals/requestForWatch";
+import  ImageGallery  from "react-image-gallery";
+import 'react-image-gallery/styles/css/image-gallery.css'
 
 export default function Details() {
   const { id } = useParams();
@@ -16,7 +18,7 @@ export default function Details() {
       .then((res) => res.json())
       .then((data) => {
         setWatches(data.data);
-        console.log(data)
+        // console.log(data.data)
       });
   }, []);
 
@@ -27,7 +29,7 @@ export default function Details() {
     // setImages([...images,  {original:'http://localhost:1337' + item, thumbnail:'http://localhost:1337' + item} ])
    imgArray.push( {original:'https://shielded-depths-59676.herokuapp.com' + item, thumbnail:'https://shielded-depths-59676.herokuapp.com' + item} )
    
-       console.log(item)
+      //  console.log(item)
     });
     setImages(imgArray)
   }, [watches]);
@@ -43,7 +45,21 @@ export default function Details() {
           <div className="row px-md-5  ">
             <div className="col-12 col-md-5  px-3 ">
               {/* { images  && <p>{JSON.stringify(images)}</p> } */}
-              <p>test image gallery</p>
+              { images  && <ImageGallery
+                items={images}
+                showThumbnails={true}
+                showFullscreenButton={false}
+                showPlayButton={false}
+                showNav={true}
+              />}
+              
+              {/* { images  && <ImageGallery
+                showPlayButton={false}
+                showThumbnails={false}
+                showNav={false}
+                autoPlay={false}
+                items={images}
+              />} */}
             </div>
             <div className="col-12 col-md-7  px-3 py-3">
               <div className="row">
