@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Watch } from "./../../interfaces/interfaces";
-import ImageGallery from "react-image-gallery";
+import { Watch } from "../../interfaces/interfaces";
 import styles from "./details.module.css";
 import AlertWithForm from "../../components/modals/requestForWatch";
 
@@ -44,11 +43,7 @@ export default function Details() {
           <div className="row px-md-5  ">
             <div className="col-12 col-md-5  px-3 ">
               {/* { images  && <p>{JSON.stringify(images)}</p> } */}
-              { images  && <ImageGallery
-                showPlayButton={false}
-                autoPlay={false}
-                items={images}
-              />}
+              <p>test image gallery</p>
             </div>
             <div className="col-12 col-md-7  px-3 py-3">
               <div className="row">
