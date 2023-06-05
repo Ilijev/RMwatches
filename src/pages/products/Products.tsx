@@ -64,15 +64,15 @@ export default function Products({}: Props) {
          data
         );
         setBrands(
-          Array.from(new Set(data.data.map((obj: any) => obj.attributes.maker)))
-          // Array.from(new Set(data.map((obj: any) => obj.attributes.maker)))
+          // Array.from(new Set(data.data.map((obj: any) => obj.attributes.maker)))
+          Array.from(new Set(data.map((obj: any) => obj.attributes.maker)))
         );
         setModels(
-          Array.from(new Set(data.data.map((obj: any) => obj.attributes.model)))
-          // Array.from(new Set(data.map((obj: any) => obj.attributes.model)))
+          // Array.from(new Set(data.data.map((obj: any) => obj.attributes.model)))
+          Array.from(new Set(data.map((obj: any) => obj.attributes.model)))
         );
-        setWatches(data.data);
-        // setWatches(data);
+        // setWatches(data.data);
+        setWatches(data);
       });
   }
 

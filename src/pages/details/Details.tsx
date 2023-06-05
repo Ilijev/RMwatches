@@ -50,7 +50,7 @@ export default function Details({}: Props) {
         <div className={`container-fluid py-3 ${styles.detailsContainer} `}>
           <div className="row px-md-5  ">
             <div className="col-12 col-md-5  px-3 ">
-              {/* { images  && <p>{JSON.stringify(images)}</p> } */}
+              { images  && <p>{JSON.stringify(images)}</p> }
               { images  && <ImageGallery
                 showPlayButton={false}
                 autoPlay={false}
