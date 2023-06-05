@@ -24,17 +24,17 @@ export default function Details({}: Props) {
       });
   }, []);
 
-  // useEffect(() => {
-  //  let imgArray :any =[]
-  //  watches && watches.attributes.imgLinks && Object.values(watches.attributes.imgLinks).forEach((item: any) => {
+  useEffect(() => {
+   let imgArray :any =[]
+   watches && watches.attributes.imgLinks && Object.values(watches.attributes.imgLinks).forEach((item: any) => {
        
-  //   // setImages([...images,  {original:'http://localhost:1337' + item, thumbnail:'http://localhost:1337' + item} ])
-  //  imgArray.push( {original:'https://shielded-depths-59676.herokuapp.com' + item, thumbnail:'https://shielded-depths-59676.herokuapp.com' + item} )
+    // setImages([...images,  {original:'http://localhost:1337' + item, thumbnail:'http://localhost:1337' + item} ])
+   imgArray.push( {original:'https://shielded-depths-59676.herokuapp.com' + item, thumbnail:'https://shielded-depths-59676.herokuapp.com' + item} )
    
-  //      console.log(item)
-  //   });
-  //   setImages(imgArray)
-  // }, [watches]);
+       console.log(item)
+    });
+    setImages(imgArray)
+  }, [watches]);
 
   return (
     <>
@@ -47,11 +47,11 @@ export default function Details({}: Props) {
           <div className="row px-md-5  ">
             <div className="col-12 col-md-5  px-3 ">
               {/* { images  && <p>{JSON.stringify(images)}</p> } */}
-              {/* { images  && <ImageGallery
+              { images  && <ImageGallery
                 showPlayButton={false}
                 autoPlay={false}
                 items={images}
-              />} */}
+              />}
             </div>
             <div className="col-12 col-md-7  px-3 py-3">
               <div className="row">
