@@ -17,7 +17,7 @@ export default function Home({}: Props) {
       .then((data) => {
         // setWatches(data.data);
         console.log(data,"asdasd")
-        setWatches(data);
+        setWatches(data.data);
       });
   }, []);
 
@@ -40,7 +40,8 @@ export default function Home({}: Props) {
             </select>
           </div> */}
         </div>
-        {watches?.length && (
+        {watches?.length == 0 && <div>Loading...</div>}
+        {watches && watches?.length > 0 && (
           <div className="row py-3   ">
             {watches.map((watch, index) => {
               return (
