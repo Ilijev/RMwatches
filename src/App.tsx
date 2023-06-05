@@ -16,6 +16,8 @@ import DashBoardLanding from "./pages/dash board landing/DashBoardLanding";
 import LoginForm from "./pages/logInForm/LogInForm";
 import WatchService from "./pages/watch service/WatchService";
 import AuthChecker from "./components/GuardedRoute/AuthChecker";
+import Policy from "./pages/privacy and cookies policy/Policy";
+
 
 function App() {
   const [showBanner, setShowBanner] = useState(false);
@@ -49,6 +51,7 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/policy" element={<Policy />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/details/:id" element={<Details />} />
             <Route path="/details/:id" element={<Details />} />
