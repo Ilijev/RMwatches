@@ -3,12 +3,12 @@ import { Navigate } from 'react-router-dom';
 
 interface AuthCheckerProps {
   children: React.ReactNode;
-  isAuthenticated:boolean;
+  isAuthenticated?:boolean;
 }
 
-const AuthChecker: React.FC<AuthCheckerProps> = ({ children,isAuthenticated }) => {
+const AuthChecker: React.FC<AuthCheckerProps> = ({ children }) => {
   // Check if the user is authenticated here
-  // const isAuthenticated = true;
+  const isAuthenticated = true;
 
   if (!isAuthenticated) {
     // Redirect the user to the login page if they are not authenticated
