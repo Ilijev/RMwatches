@@ -59,7 +59,7 @@ function App() {
             <Route
               path="/dashboard/form"
               element={
-                <AuthChecker>
+                <AuthChecker isAuthenticated={isAuthenticated}>
                   <DashBoardForm />
                 </AuthChecker>
               }
@@ -69,8 +69,8 @@ function App() {
             <Route path="*" element={<NotFound />} />
             <Route
               path="/dashboard"
-              element={ 
-                <AuthChecker>
+              element={
+                <AuthChecker isAuthenticated={isAuthenticated}>
                   <DashBoardLanding />
                 </AuthChecker>
               }
