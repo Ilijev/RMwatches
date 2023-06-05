@@ -25,7 +25,7 @@ export default function Home({}: Props) {
 
   return (
     <div className="bg-light-custom">
-      <LandingBanner />
+      {/* <LandingBanner /> */}
       <div className="container ">
         <div className="row py-3 justify-content-between">
           <div className="col-6 mx-auto text-center ">
