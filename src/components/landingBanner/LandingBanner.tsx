@@ -5,14 +5,14 @@ function LandingBanner() {
     <Carousel controls={false} indicators={true}>
       <Carousel.Item interval={1000}>
         <img
-          className={`d-block w-100 ${styles.carouselImg} `} src={require("../../images/thumbnail1.jpg")}
+          className={`d-block w-100 ${styles.carouselImg} `} src={"../../images/thumbnail1.jpg"}
           alt="First slide"
         />
        
       </Carousel.Item>
       <Carousel.Item interval={2500}>
         <img
-          className={`d-block w-100 ${styles.carouselImg} `} src={require("../../images/thumbnail2.jpg")}
+          className={`d-block w-100 ${styles.carouselImg} `} src={"../../images/thumbnail2.jpg"}
           
           alt="Second slide"
         />
@@ -20,21 +20,21 @@ function LandingBanner() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-         className={`d-block w-100 ${styles.carouselImg} `} src={require("../../images/thumbnail3.jpg")}
+         className={`d-block w-100 ${styles.carouselImg} `} src={"../../images/thumbnail3.jpg"}
           alt="Third slide"
         />
         
       </Carousel.Item>
       <Carousel.Item>
         <img
-         className={`d-block w-100 ${styles.carouselImg} `} src={require("../../images/thumbnail4.jpg")}
+         className={`d-block w-100 ${styles.carouselImg} `} src={"../../images/thumbnail4.jpg"}
           alt="Third slide"
         />
        
       </Carousel.Item>
       <Carousel.Item>
         <img
-         className={`d-block w-100 ${styles.carouselImg} `} src={require("../../images/thumbnail5.jpg")}
+         className={`d-block w-100 ${styles.carouselImg} `} src={"../../images/thumbnail5.jpg"}
           alt="Third slide"
         />
       
