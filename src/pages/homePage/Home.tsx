@@ -31,15 +31,8 @@ export default function Home({}: Props) {
           <div className="col-6 mx-auto text-center ">
             <h3 className="fs-1 mb-0">New Arrivals</h3>
           </div>
-          {/* <div className="col-4">
-            <select className="form-select" aria-label="Default select">
-              <option>Default</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
-          </div> */}
         </div>
+        {watches?.length == 0 && <div>Loading...</div> }
         {watches?.length && (
           <div className="row py-3   ">
             {watches.map((watch, index) => {
