@@ -69,7 +69,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
             <Route
               path="/dashboard"
-              element={
+              element={ 
                 <AuthChecker>
                   <DashBoardLanding />
                 </AuthChecker>
