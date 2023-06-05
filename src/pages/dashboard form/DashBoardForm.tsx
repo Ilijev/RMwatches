@@ -38,7 +38,7 @@ export default function DashBoardForm({}: Props) {
     });
 
     useEffect(() => {
-        id && fetch(`http://localhost:1337/api/watches/${id}`)
+        id && fetch(`https://shielded-depths-59676.herokuapp.com/api/watches/${id}`)
             .then(res => res.json())
             .then(data => {
                 setWatch(data.data)
@@ -72,7 +72,7 @@ export default function DashBoardForm({}: Props) {
             formData.append(`files`, selectedFile[i]);
         }
 
-        fetch("http://localhost:1337/api/upload", {
+        fetch("https://shielded-depths-59676.herokuapp.com/api/upload", {
             method: 'POST',
             body: formData
         })
@@ -95,7 +95,7 @@ export default function DashBoardForm({}: Props) {
                     }
                 })
 
-                fetch(`http://localhost:1337/api/watches${id ? `/${id}` : ""}`, {
+                fetch(`https://shielded-depths-59676.herokuapp.com/api/watches${id ? `/${id}` : ""}`, {
                     // Adding method type
                     method: id ? "PUT" : "POST",
                     headers: {"Content-Type": "application/json"},
@@ -105,7 +105,7 @@ export default function DashBoardForm({}: Props) {
             })
             .catch((error) => {
                 //handle error
-                fetch(`http://localhost:1337/api/watches${id ? `/${id}` : ""}`, {
+                fetch(`https://shielded-depths-59676.herokuapp.com/api/watches${id ? `/${id}` : ""}`, {
                     // Adding method type
                     method: id ? "PUT" : "POST",
                     headers: {"Content-Type": "application/json"},
@@ -465,7 +465,7 @@ export default function DashBoardForm({}: Props) {
                                             item.includes('blob:') ? 
                                             <FormImages img={item}/>
                                             :
-                                            <FormImages img={"http://localhost:1337" + item}/>
+                                            <FormImages img={"https://shielded-depths-59676.herokuapp.com" + item}/>
                                         }
                                         {
                                             !item.includes('blob:') && <p>{item}</p>

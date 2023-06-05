@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     try {
-      fetch("http://localhost:1337/api/users/me")
+      fetch("https://shielded-depths-59676.herokuapp.com/api/users/me")
         .then((response) => {
           setIsAuthenticated(true);
         })

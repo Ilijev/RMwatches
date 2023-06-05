@@ -10,7 +10,7 @@ const LoginForm = () => {
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
-        fetch("http://localhost:1337/api/auth/local", {
+        fetch("https://shielded-depths-59676.herokuapp.com/api/auth/local", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

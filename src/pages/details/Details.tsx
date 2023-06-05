@@ -17,14 +17,14 @@ export default function Details({}: Props) {
   const navigate = useNavigate();
   const [images, setImages] = useState<any>([]);
   const [descToggle, setDescToggle] = useState(true)
-  const baseURL = "http://localhost:1337" 
+  const baseURL = "https://shielded-depths-59676.herokuapp.com" 
   
   useEffect(() => {
-    fetch(`https://my-json-server.typicode.com/Ilijev/watchesjson/watches/${id}`)
+    fetch(`https://shielded-depths-59676.herokuapp.com/api/watches/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setWatches(data.data);
-        // console.log(data.data)
+        console.log(data)
       });
   }, []);
 
@@ -33,7 +33,7 @@ export default function Details({}: Props) {
    watches && watches.attributes.imgLinks && Object.values(watches.attributes.imgLinks).forEach((item: any) => {
        
     // setImages([...images,  {original:'http://localhost:1337' + item, thumbnail:'http://localhost:1337' + item} ])
-   imgArray.push( {original:'http://localhost:1337' + item, thumbnail:'http://localhost:1337' + item} )
+   imgArray.push( {original:'https://shielded-depths-59676.herokuapp.com' + item, thumbnail:'https://shielded-depths-59676.herokuapp.com' + item} )
    
        console.log(item)
     });
@@ -50,7 +50,7 @@ export default function Details({}: Props) {
         <div className={`container-fluid py-3 ${styles.detailsContainer} `}>
           <div className="row px-md-5  ">
             <div className="col-12 col-md-5  px-3 ">
-              {/* { images  && <p>{JSON.stringify(images)}</p> } */}
+              { images  && <p>{JSON.stringify(images)}</p> }
               { images  && <ImageGallery
                 showPlayButton={false}
                 autoPlay={false}
@@ -180,87 +180,7 @@ export default function Details({}: Props) {
               <div className="row">
                 <AlertWithForm />
               </div>
-              {/* <div className="row mt-4">
-                <div className="col">
-                  <div className="accordion " id="accordionExample">
-                    <div className="accordion-item">
-                      <h2 className="accordion-header" id="headingOne">
-                        <button
-                          className="accordion-button"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseOne"
-                          aria-expanded="true"
-                          aria-controls="collapseOne"
-                        >
-                          Descroption
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseOne"
-                        className="accordion-collapse collapse show"
-                        aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample"
-                      >
-                        <div className="accordion-body">
-                          {watches.attributes.description}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="accordion-item">
-                      <h2 className="accordion-header" id="headingTwo">
-                        <button
-                          className="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseTwo"
-                          aria-expanded="false"
-                          aria-controls="collapseTwo"
-                        >
-                          Polishing
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseTwo"
-                        className="accordion-collapse collapse"
-                        aria-labelledby="headingTwo"
-                        data-bs-parent="#accordionExample"
-                      >
-                        <div className="accordion-body">
-                          its fucking polished
-                        </div>
-                      </div>
-                    </div>
-                    <div className="accordion-item">
-                      <h2 className="accordion-header" id="headingThree">
-                        <button
-                          className="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseThree"
-                          aria-expanded="false"
-                          aria-controls="collapseThree"
-                        >
-                          Maintenance
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseThree"
-                        className="accordion-collapse collapse"
-                        aria-labelledby="headingThree"
-                        data-bs-parent="#accordionExample"
-                      >
-                        <div className="accordion-body">
-                          Lorem ipsum dolor, sit amet consectetur adipisicing
-                          elit. Rerum, omnis commodi? Ut delectus nisi
-                          repellendus distinctio vitae praesentium quibusdam
-                          eum.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
+              
               <div className="row">
                 <div onClick={()=>setDescToggle(!descToggle)} className="col-12 border-bottom px-3 py-2">
                   <h5 className=" fs-4" >Description {descToggle?<i className="fa-sharp fa-solid fa-chevron-up"></i>:<i className="fa-sharp fa-solid fa-chevron-down"></i>}</h5>

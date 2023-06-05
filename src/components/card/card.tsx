@@ -13,7 +13,7 @@ export default function Card({img, watchData}: Props) {
         <div className={`${styles.card} rounded-0 bg-white`}>
             <Link to={watchData.id ? `details/${watchData.id}` : ''}>
                 <img
-                    src={watchData.attributes.img ? 'http://localhost:1337' + watchData.attributes.img : img ? img : "https://via.placeholder.com/400x300"}
+                    src={watchData.attributes.img ? 'https://shielded-depths-59676.herokuapp.com' + watchData.attributes.img : img ? img : "https://via.placeholder.com/400x300"}
                     className="rounded-0 card-img-top" alt="..."/>
                 <div className="card-body text-center py-3">
                     <h5 className="text-secondary fs-4 fw-light">{watchData.attributes.model}</h5>

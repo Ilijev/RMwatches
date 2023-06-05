@@ -12,10 +12,11 @@ type Props = {};
 export default function Home({}: Props) {
   const [watches, setWatches] = useState<Watch[]>();
   useEffect(() => {
-    fetch("https://my-json-server.typicode.com/Ilijev/watchesjson/watches")
+    fetch("https://shielded-depths-59676.herokuapp.com/api/watches")
       .then((res) => res.json())
       .then((data) => {
         // setWatches(data.data);
+        console.log(data,"asdasd")
         setWatches(data);
       });
   }, []);
@@ -39,7 +40,7 @@ export default function Home({}: Props) {
             </select>
           </div> */}
         </div>
-        {watches && (
+        {watches?.length && (
           <div className="row py-3   ">
             {watches.map((watch, index) => {
               return (

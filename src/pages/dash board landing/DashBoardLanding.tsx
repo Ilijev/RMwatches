@@ -12,7 +12,7 @@ export default function DashBoardLanding({}: Props) {
   const navigate = useNavigate();
 
   async function fetchWatches() {
-    const res = await fetch("http://localhost:1337/api/watches");
+    const res = await fetch("https://shielded-depths-59676.herokuapp.com/api/watches");
     const data = await res.json();
     setWatches(data.data);
 
@@ -50,7 +50,7 @@ export default function DashBoardLanding({}: Props) {
   }
   function publishWatch(id: any) {
     let item = filtered?.find((item) => item.id === id);
-    fetch(`http://localhost:1337/api/watches/${id}`, {
+    fetch(`https://shielded-depths-59676.herokuapp.com/api/watches/${id}`, {
       method: "PUT",
       body: JSON.stringify({
         data: {
@@ -83,7 +83,7 @@ export default function DashBoardLanding({}: Props) {
   }
 
   function deleteWatch(id: any) {
-    fetch(`http://localhost:1337/api/watches/${id}`, { method: "DELETE" }).then(
+    fetch(`https://shielded-depths-59676.herokuapp.com/api/watches/${id}`, { method: "DELETE" }).then(
       (res) => console.log(res)
     );
     setFiltered(filtered?.filter((item) => item.id !== id));
@@ -124,7 +124,7 @@ export default function DashBoardLanding({}: Props) {
               <div className="col-12 col-sm-4 col-md-3  col-xl-2 mb-2 mb-sm-0">
                 <img
                   // src="https://via.placeholder.com/400x300"
-                  src={"http://localhost:1337" + watch.attributes.img}
+                  src={"https://shielded-depths-59676.herokuapp.com" + watch.attributes.img}
                   alt=""
                   className={`${styles.imgStyle} `}
                 />

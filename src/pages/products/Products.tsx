@@ -38,7 +38,7 @@ export default function Products({}: Props) {
 
   useEffect(() => {
     let URL = "";
-    URL = `http://localhost:1337/api/watches?filters${
+    URL = `https://shielded-depths-59676.herokuapp.com/api/watches?filters${
       filterState.brend ? `[maker][$eq]=${filterState.brend}` : ""
     }${filterState.brend.length && filterState.model.length ? "&filters" : ""}${
       filterState.model ? `[model][$eq]=${filterState.model}` : ""
@@ -55,7 +55,8 @@ export default function Products({}: Props) {
   function handleFeftch() {
     fetch(
       // "http://localhost:1337/api/watches?filters[published][$eq]=true&pagination[pageSize]=100"
-      "https://my-json-server.typicode.com/Ilijev/watchesjson/watches?filters[published][$eq]=true&pagination[pageSize]=100"
+      // "https://my-json-server.typicode.com/Ilijev/watchesjson/watches?filters[published][$eq]=true&pagination[pageSize]=100"
+      "https://shielded-depths-59676.herokuapp.com/api/watches?filters[published][$eq]=true&pagination[pageSize]=100"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -78,7 +79,7 @@ export default function Products({}: Props) {
   return (
     <div className="container-fluid h-100 bg-light-custom ">
       {!watches && <p>Loading</p>}
-      {watches && watches.length && (
+      {watches && watches.length  && (
         <div className="row py-4 ">
           <div className="col px-md-3 py-3">
             <div className={` ${toggleMenu ? "" : styles.hideFilter}`}>
