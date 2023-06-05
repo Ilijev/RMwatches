@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import Card from "../../components/card/card";
 import { Watch } from "./../../interfaces/interfaces";
 import styles from "./productsStyles.module.css";
-type Props = {};
 
-export default function Products({}: Props) {
+export default function Products() {
   const [watches, setWatches] = useState<Watch[]>();
   const [toggleMenu, setToggleMenu] = useState<boolean>(
-    window.innerWidth > 769 ? true : false
+    window.innerWidth > 769
   );
   const [filterState, setFilterState] = useState({
     brend: "",

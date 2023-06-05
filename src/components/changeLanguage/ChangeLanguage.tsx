@@ -1,10 +1,8 @@
 import React from "react";
 
-type Props = {};
-
-export default function ChangeLanguage({}: Props) {
+export default function ChangeLanguage() {
   return (
-    <div >
+    <div>
       <button className="btn text-white p-2 hover-underline-animation">EN</button>
       <button className="btn text-white p-2 hover-underline-animation ">DE</button>
     </div>

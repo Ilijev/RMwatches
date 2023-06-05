@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-export default function Policy({}: Props) {
+export default function Policy() {
   return (
     <div className="container">
       <div className="row">

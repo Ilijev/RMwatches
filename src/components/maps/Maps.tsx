@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import React, { useState } from "react";
+import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import { MarkerF } from "@react-google-maps/api";
 const containerStyle = {
   width: "100%",
@@ -7,7 +7,6 @@ const containerStyle = {
 };
 
 const center = { lat: 48.1776851, lng: 11.631317 };
-interface Props {}
 
 const GoogleMapWrapper = () => {
   const [map, setMap] = useState<google.maps.Map | null>(null);

@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-type Props = {};
-
-export default function NotFound({}: Props) {
+export default function NotFound() {
   return (
     <div className="container" style={{height:`calc(100vh - +286px)`}}>
       <div className="row align-items-center h-100" >

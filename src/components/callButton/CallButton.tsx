@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./callButton.module.css";
-type Props = {};
 
-export default function CallButton({}: Props) {
+export default function CallButton() {
   const handleClick = () => {
     const url = `https://wa.me/+491738971063`;
     window.open(url);

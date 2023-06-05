@@ -4,6 +4,6 @@ type Props = {img?:string}
 
 export default function FormImages({img}: Props) {
   return (
-    <img src={img}></img>
+    <img src={img} alt={"testtest"}></img>
   )
 }

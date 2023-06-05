@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
-import ImageGallery from "react-image-gallery";
 import LandingBanner from "../../components/landingBanner/LandingBanner";
 import styles from "./homePage.module.css";
-import Card from "../../components/card/card";
 import { NavLink } from "react-router-dom";
 import { Watch } from "../../interfaces/interfaces";
 import LandingCard from "../../components/landing page card/LandingCard";
 
-type Props = {};
-
-export default function Home({}: Props) {
+export default function Home() {
   const [watches, setWatches] = useState<Watch[]>();
   useEffect(() => {
     fetch("https://shielded-depths-59676.herokuapp.com/api/watches")
@@ -32,7 +28,7 @@ export default function Home({}: Props) {
             <h3 className="fs-1 mb-0">New Arrivals</h3>
           </div>
         </div>
-        {watches?.length == 0 && <div>Loading...</div> }
+        {watches?.length === 0 && <div>Loading...</div> }
         {watches?.length && (
           <div className="row py-3   ">
             {watches.map((watch, index) => {

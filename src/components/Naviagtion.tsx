@@ -5,9 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 import ChangeLanguage from "./changeLanguage/ChangeLanguage";
 
-type Props = {};
-
-export default function Navigation({}: Props) {
+export default function Navigation() {
   return (
     <Navbar collapseOnSelect expand="md"  variant="dark" className="py-0 bg-dark-custom ">
       <Container fluid>

@@ -4,9 +4,7 @@ import styles from "./dashBoardLanding.module.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-type Props = {};
-
-export default function DashBoardLanding({}: Props) {
+export default function DashBoardLanding() {
   const [watches, setWatches] = useState<Watch[]>();
   const [filtered, setFiltered] = useState<Watch[]>();
   const navigate = useNavigate();

@@ -5,9 +5,7 @@ import styles from "./dashBoardFormStyles.module.css";
 import {useNavigate, useParams} from "react-router-dom";
 import FormImages from "../../components/form img component/FormImages";
 
-type Props = {};
-
-export default function DashBoardForm({}: Props) {
+export default function DashBoardForm() {
     const navigate = useNavigate();
     const {id} = useParams();
 

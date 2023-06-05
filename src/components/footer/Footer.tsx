@@ -11,7 +11,7 @@ export default function Footer() {
         {/* <!-- Section: Social media --> */}
         <section className="mb-4">
           {/* <!-- Facebook --> */}
-          <a className={`btn btn-outline-light btn-floating m-1 ${styles.footer}`} href="https://www.facebook.com/rmwatchesmunich" target={'_blank'}>
+          <a className={`btn btn-outline-light btn-floating m-1 ${styles.footer}`} rel="noreferrer" href="https://www.facebook.com/rmwatchesmunich" target={'_blank'}>
             <i className="fab fa-facebook-f text-white"></i>
           </a>
 
@@ -21,7 +21,7 @@ export default function Footer() {
           </a>
 
           {/* <!-- Instagram --> */}
-          <a className={`btn btn-outline-light btn-floating m-1 ${styles.footer}`}  href="https://www.instagram.com/rmwatchesmunich/" target={'_blank'}>
+          <a className={`btn btn-outline-light btn-floating m-1 ${styles.footer}`}  href="https://www.instagram.com/rmwatchesmunich/" target={'_blank'} rel="noreferrer">
             <i className="fab fa-instagram text-white"></i>
           </a>
         </section>

@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-export default function AboutUs({}: Props) {
+export default function AboutUs() {
   return (
     <div className="container h-100 ">
       <div className="row">

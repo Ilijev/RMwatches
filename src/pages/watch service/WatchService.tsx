@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 
-type Props = {}
-
-export default function WatchService({}: Props) {
+export default function WatchService() {
   const [data, setData] = useState({
     name: "",
     lastName: "",

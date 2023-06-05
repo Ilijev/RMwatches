@@ -4,17 +4,14 @@ import { Watch } from "./../../interfaces/interfaces";
 import ImageGallery from "react-image-gallery";
 import styles from "./details.module.css";
 import AlertWithForm from "../../components/modals/requestForWatch";
-type Props = {};
 
-export default function Details({}: Props) {
+export default function Details() {
   const { id } = useParams();
   const [watches, setWatches] = useState<Watch>();
-  const [filteredWatch, setFilteredWatch] = useState<Watch>();
   const navigate = useNavigate();
   const [images, setImages] = useState<any>([]);
   const [descToggle, setDescToggle] = useState(true)
-  const baseURL = "https://shielded-depths-59676.herokuapp.com" 
-  
+
   useEffect(() => {
     fetch(`https://shielded-depths-59676.herokuapp.com/api/watches/${id}`)
       .then((res) => res.json())

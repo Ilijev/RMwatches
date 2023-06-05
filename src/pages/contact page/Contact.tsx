@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-type Props = {};
-
-export default function Contact({}: Props) {
+export default function Contact() {
   const [data, setData] = useState({
     name: "",
     lastName: "",

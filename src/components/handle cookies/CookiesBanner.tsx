@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styles from './cookieBanner.module.css'
 interface Props{
     handleCookies:(cookieState:boolean)=>void
