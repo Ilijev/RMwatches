@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../../components/card/card";
 import { Watch } from "./../../interfaces/interfaces";
-import styles from "./productsStyles.module.css";
+import styles from "./productsStyles.module.css"
 
 export default function Products() {
   const [watches, setWatches] = useState<Watch[]>();
