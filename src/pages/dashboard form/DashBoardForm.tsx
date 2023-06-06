@@ -172,7 +172,7 @@ export default function DashBoardForm() {
                                         watch?.attributes.maker ? "" : styles.error
                                     }`}
                                     id="watchMaker"
-                                    placeholder="Watch Maker"
+                                    placeholder="Watch Brand"
                                     onChange={(e) =>
                                         setWatch({
                                             ...watch, attributes: {
@@ -286,7 +286,7 @@ export default function DashBoardForm() {
                                 />
                             </div>
                             <div className="form-group my-2 col-12 col-lg-6">
-                                <label htmlFor="watchDiametar">Watch Diametar</label>
+                                <label htmlFor="watchDiametar">Watch Diameter</label>
                                 <input
                                     type="number"
                                     defaultValue={watch.attributes.diameter}
@@ -294,7 +294,7 @@ export default function DashBoardForm() {
                                         watch?.attributes.diameter ? "" : styles.error
                                     }`}
                                     id="watchDiametar"
-                                    placeholder="Watch Diametar"
+                                    placeholder="Watch Diameter"
                                     onChange={(e) =>
                                         setWatch({
                                             ...watch, attributes: {
@@ -325,7 +325,7 @@ export default function DashBoardForm() {
                                     }
                                 />
                             </div>
-                            <div className="form-group my-2 col-12 col-lg-6">
+                            {/* <div className="form-group my-2 col-12 col-lg-6">
                                 <label htmlFor="watchBand">Watch Band</label>
                                 <input
                                     type="text"
@@ -344,7 +344,7 @@ export default function DashBoardForm() {
                                         })
                                     }
                                 />
-                            </div>
+                            </div> */}
                             <div className="form-group my-2 col-12 col-lg-6">
                                 <label htmlFor="watchYear">Watch Production Year</label>
                                 <input

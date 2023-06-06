@@ -33,7 +33,7 @@ export default function Home() {
           <div className="row py-3   ">
             {watches.map((watch, index) => {
               return (
-                <div key={index} className="col-sm-6 col-md-6 col-lg-4    my-2">
+                watch.attributes.published && <div key={index} className="col-sm-6 col-md-6 col-lg-4    my-2">
                   <LandingCard watchData={watch} />
                 </div>
               );

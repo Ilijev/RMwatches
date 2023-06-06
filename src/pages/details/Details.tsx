@@ -103,7 +103,7 @@ export default function Details() {
                         <th scope="row" className=" px-2 pb-3">
                           Year
                         </th>
-                        <td className="text-end px-2 pb-3">
+                        <td className="text-end text-capitalize px-2 pb-3">
                           {watches.attributes.year}
                         </td>
                       </tr>
@@ -111,7 +111,7 @@ export default function Details() {
                         <th scope="row" className=" px-2 pb-3">
                           Condition
                         </th>
-                        <td className="text-end px-2 pb-3">
+                        <td className="text-end text-capitalize px-2 pb-3">
                           {watches.attributes.condition}
                         </td>
                       </tr>
@@ -119,7 +119,7 @@ export default function Details() {
                         <th scope="row" className=" px-2 pb-3">
                           Papers
                         </th>
-                        <td className="text-end px-2 pb-3">
+                        <td className="text-end text-capitalize px-2 pb-3">
                           {watches.attributes.papers}
                         </td>
                       </tr>
@@ -127,7 +127,7 @@ export default function Details() {
                         <th scope="row" className=" px-2 pb-3">
                           Box
                         </th>
-                        <td className="text-end px-2 pb-3">
+                        <td className="text-end text-capitalize px-2 pb-3">
                           {watches.attributes.box}
                         </td>
                       </tr>
@@ -135,7 +135,7 @@ export default function Details() {
                         <th scope="row" className=" px-2 pb-3">
                           Material
                         </th>
-                        <td className="text-end px-2 pb-3">
+                        <td className="text-end text-capitalize px-2 pb-3">
                           {watches.attributes.material}
                         </td>
                       </tr>
@@ -149,7 +149,7 @@ export default function Details() {
                         <th scope="row" className=" px-2 pb-3">
                           Movement
                         </th>
-                        <td className="text-end px-2 pb-3">
+                        <td className="text-end text-capitalize px-2 pb-3">
                           {watches.attributes.movement}
                         </td>
                       </tr>
@@ -157,24 +157,24 @@ export default function Details() {
                         <th scope="row" className=" px-2 pb-3">
                           Case size
                         </th>
-                        <td className="text-end px-2 pb-3">
-                          {watches.attributes.diameter}
+                        <td className="text-end text-capitalize px-2 pb-3">
+                          {watches.attributes.diameter}mm
                         </td>
                       </tr>
                       <tr>
                         <th scope="row" className=" px-2 pb-3">
-                          Dial color
+                          Dial colour
                         </th>
-                        <td className="text-end px-2 pb-3">
+                        <td className="text-end text-capitalize px-2 pb-3">
                           {watches.attributes.colorDial}
                         </td>
                       </tr>
                       <tr>
                         <th scope="row" className=" px-2 pb-3">
-                          Band
+                          Code
                         </th>
-                        <td className="text-end px-2 pb-3">
-                          {watches.attributes.watchBand}
+                        <td className="text-end text-capitalize px-2 pb-3">
+                          {watches.attributes.code}
                         </td>
                       </tr>
                     </tbody>
