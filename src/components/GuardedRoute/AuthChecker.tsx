@@ -6,9 +6,9 @@ interface AuthCheckerProps {
   isAuthenticated:boolean;
 }
 
-const AuthChecker: React.FC<AuthCheckerProps> = ({ children }) => {
+const AuthChecker: React.FC<AuthCheckerProps> = ({ children,isAuthenticated }) => {
   // Check if the user is authenticated here
-  const isAuthenticated = true;
+  // const isAuthenticated = true;
 
   if (!isAuthenticated) {
     // Redirect the user to the login page if they are not authenticated
