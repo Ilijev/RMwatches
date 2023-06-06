@@ -26,10 +26,10 @@ const CookiesBanner = ({handleCookies,showBanner}:Props) => {
 
   return (
     <div className={`${styles.cookiesBanner} bg-dark-custom text-center text-white w-100  p-3 ${showBanner ? '' : 'd-none'} `}>
-      <p>We use cookies to improve your experience on our website.</p>
+      <p className='px-5'>Our website uses cookies to enhance your browsing experience and provide certain essential functionalities. Cookies are small text files that are placed on your device when you visit a website. They allow us to remember your preferences, analyze website traffic, and improve our services. However, we do not use cookies for any purpose other than those necessary for the functioning of our website</p>
       <div className="">
-        <button className='btn btn-success mx-2 ' onClick={handleAccept}>Accept</button>
-        <button className='btn btn-danger mx-2' onClick={handleReject}>Reject</button>
+        <button className='btn bg-dark-custom rounded-0 border text-white mx-2 ' onClick={handleAccept}>Accept</button>
+        {/* <button className='btn btn-light  rounded-0 mx-2' onClick={handleReject}>Reject</button> */}
       </div>
     </div>
   );

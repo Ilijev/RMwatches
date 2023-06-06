@@ -95,7 +95,7 @@ export default function Details() {
                   }).format(watches?.attributes.price || 0)}
                 </p>
               </div>
-              <div className="row my-5">
+              <div className="row mt-5">
                 <div className="col-sm-6 px-0">
                   <table className="table ">
                     <tbody>
@@ -181,15 +181,18 @@ export default function Details() {
                   </table>
                 </div>
               </div>
-              <div className="row">
+              {/* <div className="row">
                 <AlertWithForm />
-              </div>
+              </div> */}
               
-              <div className="row">
+              <div className="row mb-3">
                 <div onClick={()=>setDescToggle(!descToggle)} className="col-12 border-bottom px-3 py-2">
                   <h5 className=" fs-4" >Description {descToggle?<i className="fa-sharp fa-solid fa-chevron-up"></i>:<i className="fa-sharp fa-solid fa-chevron-down"></i>}</h5>
               <p className={` ${descToggle?"d-block": "d-none"}`}>{watches.attributes.description}</p>
                 </div>
+              </div>
+              <div className="row">
+                <AlertWithForm />
               </div>
             </div>
           </div>
