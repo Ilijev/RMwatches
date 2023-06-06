@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 
 interface AuthCheckerProps {
   children: React.ReactNode;
-  isAuthenticated?:boolean;
+  isAuthenticated:boolean;
 }
 
 const AuthChecker: React.FC<AuthCheckerProps> = ({ children }) => {
