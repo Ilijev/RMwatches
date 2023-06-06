@@ -12,8 +12,8 @@ export default function Home() {
       .then((res) => res.json())
       .then((data) => {
         // setWatches(data.data);
-        console.log(data,"asdasd")
-        setWatches(data);
+        console.log(data.data,"asdasd")
+        setWatches(data.data);
       });
   }, []);
 
