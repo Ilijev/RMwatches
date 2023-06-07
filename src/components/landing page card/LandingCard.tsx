@@ -27,11 +27,11 @@ export default function LandingCard({ img, watchData }: Props) {
           <span className=" text-uppercase ">
             {watchData.attributes.maker}
           </span>
-          <span className="">-</span>
-          <span className=" fw-light">{watchData.attributes.model} </span>
-          <span className="">-</span>
+          {/* <span className="">-</span> */}
+          <span className=" fw-light mx-2">{watchData.attributes.model} </span>
+          {/* <span className="">-</span> */}
           <span className=" fw-light">
-            {watchData.attributes.referenceNumber}
+            Ref {watchData.attributes.referenceNumber}
           </span>
           <p className=" mb-0 fs-5 ">
 
