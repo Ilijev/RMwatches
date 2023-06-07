@@ -18,6 +18,8 @@ import WatchService from "./pages/watch service/WatchService";
 import AuthChecker from "./components/GuardedRoute/AuthChecker";
 import TermsAndConditions from "./pages/privacy and cookies policy/TermsAndConditions";
 import DataProtection from "./pages/privacy and cookies policy/DataProtection";
+import Imprint from "./pages/privacy and cookies policy/Imprint";
+import RightOfWithdrawal from "./pages/privacy and cookies policy/RightOfWithdrawal";
 
 
 function App() {
@@ -54,6 +56,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/termsAndConditions" element={<TermsAndConditions />} />
             <Route path="/dataProtection" element={<DataProtection />} />
+            <Route path="/imprint" element={<Imprint />} />
+            <Route path="/rightOfWithdrawal" element={<RightOfWithdrawal />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/details/:id" element={<Details />} />
             <Route path="/details/:id" element={<Details />} />
