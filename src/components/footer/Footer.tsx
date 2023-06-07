@@ -53,7 +53,7 @@ export default function Footer() {
         </div>
       </div>
       {/* <!-- Copyright --> */}
-      <div className="text-center pt-3 pb-2 bg-dark-custom" > <Link to="policy" className="text-white">Privacy & Cookie Policy </Link> </div>
+      <div className="text-center pt-3 pb-2 bg-dark-custom" > <Link to="termsAndConditions" className="text-white">Privacy & Cookie Policy </Link> </div>
 
       <div className="text-center pb-3 bg-dark-custom">© 2022 Copyright:</div>
       {/* <!-- Copyright --> */}

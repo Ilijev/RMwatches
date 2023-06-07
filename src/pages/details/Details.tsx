@@ -94,6 +94,8 @@ export default function Details() {
                   {new Intl.NumberFormat("de-DE", {
                     style: "currency",
                     currency: "EUR",
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0,
                   }).format(watches?.attributes.price || 0)}
                 </p>
                 <small>Free Shipping</small>
