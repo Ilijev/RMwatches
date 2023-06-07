@@ -17,6 +17,7 @@ import LoginForm from "./pages/logInForm/LogInForm";
 import WatchService from "./pages/watch service/WatchService";
 import AuthChecker from "./components/GuardedRoute/AuthChecker";
 import TermsAndConditions from "./pages/privacy and cookies policy/TermsAndConditions";
+import DataProtection from "./pages/privacy and cookies policy/DataProtection";
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/termsAndConditions" element={<TermsAndConditions />} />
+            <Route path="/dataProtection" element={<DataProtection />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/details/:id" element={<Details />} />
             <Route path="/details/:id" element={<Details />} />
