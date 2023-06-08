@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../../components/card/card";
 import { Watch } from "./../../interfaces/interfaces";
-import styles from "./productsStyles.module.css"
+import styles from "./productsStyles.module.css";
 
 export default function Products() {
   const [watches, setWatches] = useState<Watch[]>();
@@ -59,9 +59,7 @@ export default function Products() {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(
-         data
-        );
+        // console.log(data);
         setBrands(
           Array.from(new Set(data.data.map((obj: any) => obj.attributes.maker)))
           // Array.from(new Set(data.map((obj: any) => obj.attributes.maker)))
@@ -78,7 +76,7 @@ export default function Products() {
   return (
     <div className="container-fluid h-100 bg-light-custom ">
       {!watches && <p>Loading</p>}
-      {watches && watches.length  && (
+      {watches && watches.length && (
         <div className="row py-4 ">
           <div className="col px-md-3 py-3">
             <div className={` ${toggleMenu ? "" : styles.hideFilter}`}>
@@ -92,7 +90,19 @@ export default function Products() {
                 >
                   Filters
                 </p>
-                <span className={`fs-2 m-0 py-2 px-1 `}>+</span>
+                <span
+                  className={`fs-2 m-0 py-2 px-1 `}
+                  onClick={() => {
+                    if (filterState.brend.length || filterState.model.length) {
+                      setFilterState({ model: "", brend: "" });
+                      handleFeftch();
+                      setNotFound(false);
+                      // console.log(watches)
+                    }
+                  }}
+                >
+                  <i className="fa-solid fa-rotate fs-4"></i>
+                </span>
               </div>
 
               <div className={`${toggleBrands ? styles.hideFilter : ""}`}>
@@ -166,7 +176,7 @@ export default function Products() {
                   onClick={() => {
                     setFilterState({ model: "", brend: "" });
                     handleFeftch();
-                    setNotFound(!notFound);
+                    setNotFound(false);
                   }}
                 >
                   Reset FIlters
