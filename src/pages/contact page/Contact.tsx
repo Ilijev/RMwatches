@@ -9,39 +9,62 @@ export default function Contact() {
     maker: "",
     model: "",
     desc: "",
+    year: "",
+    price: "",
+    refNumber: "",
+    originalBox:false,
+    originalPapers:false,
+    notOriginalBox:false
     // checkBox: false,
   });
+
+  const [validated, setValidated] = useState(false);
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     // console.log(Object.values(data).every((el) => el.length > 2)){
-    if (Object.values(data).every((el) => el.length > 2)) {
-      console.log("podlgo");
+    // if (Object.values(data).every((el) => el.length > 2)) {
+    //   console.log("podlgo");
+    // } else {
+    //   console.log("pokratko");
+    // }
+
+    const form = e.currentTarget;
+
+    if (form.checkValidity() === false) {
+      e.stopPropagation();
     } else {
-      console.log("pokratko");
+      // Perform form submission logic here
+      console.log('Name:', data.name);
+      
     }
+
+    setValidated(true);
+
   }
   return (
     <div className="container-fluid text-center  p-sm-5">
       
       <h1 className="fs-2">Sell your watch with confidence </h1>
       <h1 className="fs-1">Your privacy and security are our top priority</h1>
-      <form onSubmit={handleSubmit} className="p-md-5">
+      <form onSubmit={handleSubmit} className={`p-md-5 ${validated ? 'was-validated' : ''} `}noValidate  >
         <div className="row">
           <div className="col-12 mx-auto col-md-8">
             <div className="row mx-auto ">
               <div className="col-12 col-md-6 p-2 ">
                 <input
-                  // required
+                  
                   type="text"
                   value={data.name}
                   onChange={(e) => setData({ ...data, name: e.target.value })}
                   className="form-control shadow-none"
                   placeholder="First name"
+                  required
                 />
               </div>
               <div className="col-12 col-md-6 p-2 ">
                 <input
-                  // required
+                  required
                   type="text"
                   value={data.lastName}
                   onChange={(e) =>
@@ -53,7 +76,7 @@ export default function Contact() {
               </div>
               <div className="col-12 col-md-8  p-2 ">
                 <input
-                  // required
+                  required
                   type="email"
                   value={data.email}
                   onChange={(e) => setData({ ...data, email: e.target.value })}
@@ -63,7 +86,7 @@ export default function Contact() {
               </div>
               <div className="col-12 col-md-4  p-2 ">
                 <input
-                  // required
+                  required
                   type="number"
                   value={data.number}
                   onChange={(e) => setData({ ...data, number: e.target.value })}
@@ -73,7 +96,7 @@ export default function Contact() {
               </div>
               <div className="col-12 col-md-4  p-2 ">
                 <input
-                  // required
+                  required
                   type="text"
                   value={data.maker}
                   onChange={(e) => setData({ ...data, maker: e.target.value })}
@@ -83,7 +106,7 @@ export default function Contact() {
               </div>
               <div className="col-12 col-md-8  p-2 ">
                 <input
-                  // required
+                  required
                   type="text"
                   value={data.model}
                   onChange={(e) => setData({ ...data, model: e.target.value })}
@@ -93,10 +116,10 @@ export default function Contact() {
               </div>
               <div className="col-12 col-md-8  p-2 ">
                 <input
-                  // required
+                  required
                   type="text"
-                  // value={data.model}
-                  // onChange={(e) => setData({ ...data, model: e.target.value })}
+                  value={data.refNumber}
+                  onChange={(e) => setData({ ...data, refNumber: e.target.value })}
                   className="form-control shadow-none"
                   placeholder="Reference number "
                 />
@@ -105,8 +128,8 @@ export default function Contact() {
                 <input
                   // required
                   type="text"
-                  value={data.maker}
-                  onChange={(e) => setData({ ...data, maker: e.target.value })}
+                  value={data.year}
+                  onChange={(e) => setData({ ...data, year: e.target.value })}
                   className="form-control shadow-none"
                   placeholder="Production Year"
                 />
@@ -115,8 +138,8 @@ export default function Contact() {
                 <input
                   // required
                   type="text"
-                  value={data.maker}
-                  onChange={(e) => setData({ ...data, maker: e.target.value })}
+                  value={data.price}
+                  onChange={(e) => setData({ ...data, price: e.target.value })}
                   className="form-control shadow-none"
                   placeholder="Price"
                 />
@@ -140,10 +163,10 @@ export default function Contact() {
                   type="checkbox"
                   name=""
                   id="boxInfo"
-                  // checked={data.checkBox}
-                  // onChange={(e) =>
-                  //   setData({ ...data, checkBox: e.target.checked })
-                  // }
+                  checked={data.originalBox}
+                  onChange={(e) =>
+                    setData({ ...data, originalBox: e.target.checked })
+                  }
                 />
                 <label htmlFor="boxInfo" className="fw-light px-2">
                 Original Box
@@ -155,10 +178,10 @@ export default function Contact() {
                   type="checkbox"
                   name=""
                   id="originalPapers"
-                  // checked={data.checkBox}
-                  // onChange={(e) =>
-                  //   setData({ ...data, checkBox: e.target.checked })
-                  // }
+                  checked={data.originalPapers}
+                  onChange={(e) =>
+                    setData({ ...data, originalPapers: e.target.checked })
+                  }
                 />
                 <label htmlFor="originalPapers" className="fw-light px-2">
                   Original Papers
@@ -170,10 +193,10 @@ export default function Contact() {
                   type="checkbox"
                   name=""
                   id="notOriginalBox"
-                  // checked={data.checkBox}
-                  // onChange={(e) =>
-                  //   setData({ ...data, checkBox: e.target.checked })
-                  // }
+                  checked={data.notOriginalBox}
+                  onChange={(e) =>
+                    setData({ ...data, notOriginalBox: e.target.checked })
+                  }
                 />
                 <label htmlFor="notOriginalBox" className="fw-light px-2">
                   Not Original Box
