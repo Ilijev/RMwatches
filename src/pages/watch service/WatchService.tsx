@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 export default function WatchService() {
   const [data, setData] = useState({
@@ -9,42 +9,38 @@ export default function WatchService() {
     maker: "",
     model: "",
     desc: "",
-    // checkBox: false,
+    year: "",
+    price: "",
+    refNumber: "",
+    originalBox:false,
+    originalPapers:false,
+    notOriginalBox:false,
+    checkBox: false,
   });
-  function handleSubmit(){
+  const [validated, setValidated] = useState(false);
 
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+
+    if (form.checkValidity() === false) {
+      e.stopPropagation();
+    } else {
+      // Perform form submission logic here
+      console.log("email:", ``);
+    }
+
+    setValidated(true);
   }
   return (
-    <div className='container h-100 py-5'>
-        <div className="row text-center">
-            <h1>Expert Watch Servicing and Repairs</h1>
-        </div>
-        <form onSubmit={handleSubmit} className="p-md-5">
+    <div className="container h-100 py-5">
+      <div className="row text-center">
+        <h1>Expert Watch Servicing and Repairs</h1>
+      </div>
+      <form onSubmit={handleSubmit} className={`p-md-5 ${validated ? 'was-validated' : ''} `} noValidate >
         <div className="row">
           <div className="col-12 mx-auto col-md-8">
             <div className="row mx-auto ">
-              {/* <div className="col-12 col-md-6 p-2 ">
-                <input
-                  // required
-                  type="text"
-                  value={data.name}
-                  onChange={(e) => setData({ ...data, name: e.target.value })}
-                  className="form-control shadow-none"
-                  placeholder="First name"
-                />
-              </div> */}
-              {/* <div className="col-12 col-md-6 p-2 ">
-                <input
-                  // required
-                  type="text"
-                  value={data.lastName}
-                  onChange={(e) =>
-                    setData({ ...data, lastName: e.target.value })
-                  }
-                  className="form-control shadow-none"
-                  placeholder="Last name"
-                />
-              </div> */}
               <div className="col-12 col-md-8  p-2 ">
                 <input
                   // required
@@ -89,8 +85,8 @@ export default function WatchService() {
                 <input
                   // required
                   type="text"
-                  // value={data.model}
-                  // onChange={(e) => setData({ ...data, model: e.target.value })}
+                  value={data.refNumber}
+                  onChange={(e) => setData({ ...data, refNumber: e.target.value })}
                   className="form-control shadow-none"
                   placeholder="Reference number "
                 />
@@ -99,8 +95,8 @@ export default function WatchService() {
                 <input
                   // required
                   type="text"
-                  value={data.maker}
-                  onChange={(e) => setData({ ...data, maker: e.target.value })}
+                  value={data.year}
+                  onChange={(e) => setData({ ...data, year: e.target.value })}
                   className="form-control shadow-none"
                   placeholder="Production Year"
                 />
@@ -109,8 +105,8 @@ export default function WatchService() {
                 <input
                   // required
                   type="text"
-                  value={data.maker}
-                  onChange={(e) => setData({ ...data, maker: e.target.value })}
+                  value={data.price}
+                  onChange={(e) => setData({ ...data, price: e.target.value })}
                   className="form-control shadow-none"
                   placeholder="Price"
                 />
@@ -127,20 +123,20 @@ export default function WatchService() {
                   placeholder="Message"
                 ></textarea>
               </div>
-             
+
               <div className="col d-flex">
                 <input
                   // required
                   type="checkbox"
                   name=""
                   id="boxInfo"
-                  // checked={data.checkBox}
-                  // onChange={(e) =>
-                  //   setData({ ...data, checkBox: e.target.checked })
-                  // }
+                  checked={data.originalBox}
+                  onChange={(e) =>
+                    setData({ ...data, originalBox: e.target.checked })
+                  }
                 />
                 <label htmlFor="boxInfo" className="fw-light px-2">
-                Original Box
+                  Original Box
                 </label>
               </div>
               <div className="col d-flex">
@@ -149,10 +145,10 @@ export default function WatchService() {
                   type="checkbox"
                   name=""
                   id="originalPapers"
-                  // checked={data.checkBox}
-                  // onChange={(e) =>
-                  //   setData({ ...data, checkBox: e.target.checked })
-                  // }
+                  checked={data.originalPapers}
+                  onChange={(e) =>
+                    setData({ ...data, originalPapers: e.target.checked })
+                  }
                 />
                 <label htmlFor="originalPapers" className="fw-light px-2">
                   Original Papers
@@ -164,10 +160,10 @@ export default function WatchService() {
                   type="checkbox"
                   name=""
                   id="notOriginalBox"
-                  // checked={data.checkBox}
-                  // onChange={(e) =>
-                  //   setData({ ...data, checkBox: e.target.checked })
-                  // }
+                  checked={data.notOriginalBox}
+                  onChange={(e) =>
+                    setData({ ...data, notOriginalBox: e.target.checked })
+                  }
                 />
                 <label htmlFor="notOriginalBox" className="fw-light px-2">
                   Not Original Box
@@ -179,20 +175,20 @@ export default function WatchService() {
                   type="checkbox"
                   name=""
                   id="contactInfo"
-                  // checked={data.checkBox}
-                  // onChange={(e) =>
-                  //   setData({ ...data, checkBox: e.target.checked })
-                  // }
+                  checked={data.checkBox}
+                  onChange={(e) =>
+                    setData({ ...data, checkBox: e.target.checked })
+                  }
                 />
                 <label htmlFor="contactInfo" className="fw-light px-2">
-                  I agree with sending my contact Information to RM Watches Munich to be
-                  contacted.
+                  I agree with sending my contact Information to RM Watches
+                  Munich to be contacted.
                 </label>
               </div>
               <div className="col-12 p-2">
                 <button
                   type="submit"
-                  // disabled={data.checkBox ? false : true}
+                  disabled={data.checkBox ? false : true}
                   className="btn w-100 border"
                 >
                   Send
@@ -203,5 +199,5 @@ export default function WatchService() {
         </div>
       </form>
     </div>
-  )
+  );
 }

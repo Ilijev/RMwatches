@@ -14,8 +14,8 @@ export default function Contact() {
     refNumber: "",
     originalBox:false,
     originalPapers:false,
-    notOriginalBox:false
-    // checkBox: false,
+    notOriginalBox:false,
+    checkBox: false,
   });
 
   const [validated, setValidated] = useState(false);
@@ -35,7 +35,7 @@ export default function Contact() {
       e.stopPropagation();
     } else {
       // Perform form submission logic here
-      console.log('Name:', data.name);
+      console.log('email:', ``);
       
     }
 
@@ -208,10 +208,10 @@ export default function Contact() {
                   type="checkbox"
                   name=""
                   id="contactInfo"
-                  // checked={data.checkBox}
-                  // onChange={(e) =>
-                  //   setData({ ...data, checkBox: e.target.checked })
-                  // }
+                  checked={data.checkBox}
+                  onChange={(e) =>
+                    setData({ ...data, checkBox: e.target.checked })
+                  }
                 />
                 <label htmlFor="contactInfo" className="fw-light px-2">
                   I agree with sending my contact Information to RM Watches Munich to be
@@ -221,7 +221,7 @@ export default function Contact() {
               <div className="col-12 p-2">
                 <button
                   type="submit"
-                  // disabled={data.checkBox ? false : true}
+                  disabled={data.checkBox ? false : true}
                   className="btn w-100 border"
                 >
                   Send
