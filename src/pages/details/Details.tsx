@@ -102,7 +102,7 @@ export default function Details() {
               </div>
               <div className="row mt-5">
                 <div className="col-sm-6 px-0">
-                  <table className="table ">
+                  <table className="table m-0 m-md-2 ">
                     <tbody>
                       <tr>
                         <th scope="row" className=" px-2 pb-3">
@@ -147,8 +147,8 @@ export default function Details() {
                     </tbody>
                   </table>
                 </div>
-                <div className="col-sm-6 px-0">
-                  <table className="table ">
+                <div className="col-sm-6 py-sm-0 px-0">
+                  <table className="table m-0 m-md-2 ">
                     <tbody>
                       <tr>
                         <th scope="row" className=" px-2 pb-3">
