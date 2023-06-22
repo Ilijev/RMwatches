@@ -20,7 +20,7 @@ import TermsAndConditions from "./pages/privacy and cookies policy/TermsAndCondi
 import DataProtection from "./pages/privacy and cookies policy/DataProtection";
 import Imprint from "./pages/privacy and cookies policy/Imprint";
 import RightOfWithdrawal from "./pages/privacy and cookies policy/RightOfWithdrawal";
-
+import ScrollToTop from "./components/scroll to top/ScrollToTop";
 
 function App() {
   const [showBanner, setShowBanner] = useState(false);
@@ -51,10 +51,13 @@ function App() {
             handleCookies={setShowBanner}
             showBanner={showBanner}
           />
-
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/termsAndConditions" element={<TermsAndConditions />} />
+            <Route
+              path="/termsAndConditions"
+              element={<TermsAndConditions />}
+            />
             <Route path="/dataProtection" element={<DataProtection />} />
             <Route path="/imprint" element={<Imprint />} />
             <Route path="/rightOfWithdrawal" element={<RightOfWithdrawal />} />
@@ -68,7 +71,7 @@ function App() {
             <Route
               path="/dashboard/form"
               element={
-                <AuthChecker isAuthenticated={isAuthenticated} >
+                <AuthChecker isAuthenticated={isAuthenticated}>
                   <DashBoardForm />
                 </AuthChecker>
               }
