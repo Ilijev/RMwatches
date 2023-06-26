@@ -16,10 +16,16 @@ export default function Card({img, watchData}: Props) {
                     src={watchData.attributes.img ? 'https://shielded-depths-59676.herokuapp.com' + watchData.attributes.img : img ? img : "https://via.placeholder.com/400x300"}
                     className="rounded-0 card-img-top" alt="..."/>
                 <div className="card-body text-center py-3">
-                    <h5 className="text-secondary fs-4 fw-light">{watchData.attributes.model}</h5>
                     <h6 className="text-secondary fs-4 fw-light">{watchData.attributes.maker}</h6>
+                    <h5 className="text-secondary fs-4 fw-light">{watchData.attributes.model}</h5>
                     <small className="text-secondary  fw-light">{watchData.attributes.referenceNumber}</small>
-                    <h3 className="fs-3 my-4 ">{watchData.attributes.price}</h3>
+                    <h3 className="fs-3 my-4 "> {new Intl.NumberFormat("de-DE", {
+                    style: "currency",
+                    currency: "EUR",
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0,
+                  }).format(watchData.attributes.price || 0)}
+                  </h3>
                 </div>
             </Link>
         </div>

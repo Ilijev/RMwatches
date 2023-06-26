@@ -32,9 +32,12 @@ export default function Footer() {
         <div className="col-md-9 mx-auto">
           <div className="row align-items-center">
             <div className="col-md-4">
-              <p>
+              {/* <p>
                 RM Watches Munich An- und Verkauf von Luxusuhren
                 Uhrmacherwerkstatt
+              </p> */}
+              <p>
+                RM Watches Munich <b> Buy</b>,<b>Sell</b>  and <b>Trade</b> luxury watches 
               </p>
             </div>
             <div className="col-md-4 ">
