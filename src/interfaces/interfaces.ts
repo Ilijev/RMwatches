@@ -13,7 +13,7 @@ export interface Watch {
         watchBand?: string;
         papers?: string;
         box?: string;
-        year?: number;
+        year?: string;
         condition?: string;
         description?: string;
         dateCreated?: string;

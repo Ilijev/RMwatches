@@ -37,7 +37,7 @@ function App() {
           sessionStorage.removeItem("jwt");
         });
     } catch (error) {
-      console.log(error);
+      console.log(error,"no tken");
     }
   }, []);
 

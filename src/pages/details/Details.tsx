@@ -29,8 +29,8 @@ export default function Details() {
       Object.values(watches.attributes.imgLinks).forEach((item: any) => {
         // setImages([...images,  {original:'http://localhost:1337' + item, thumbnail:'http://localhost:1337' + item} ])
         imgArray.push({
-          original: "https://shielded-depths-59676.herokuapp.com" + item,
-          thumbnail: "https://shielded-depths-59676.herokuapp.com" + item,
+          original: item,
+          thumbnail: item,
         });
 
         //  console.log(item)

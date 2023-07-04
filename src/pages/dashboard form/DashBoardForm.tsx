@@ -26,7 +26,7 @@ export default function DashBoardForm() {
             watchBand: "",
             papers: "",
             box: "",
-            year: 0,
+            year: "",
             condition: "",
             description: "",
             img: "",
@@ -207,7 +207,7 @@ export default function DashBoardForm() {
                                 <label htmlFor="watchPrice">Watch Price</label>
                                 <input
                                     type="number"
-                                    defaultValue={watch.attributes.price}
+                                    defaultValue={watch.attributes.price?.toLocaleString()}
                                     className={`form-control shadow-none  ${
                                         watch?.attributes.price ? "" : styles.error
                                     }`}
@@ -348,7 +348,7 @@ export default function DashBoardForm() {
                             <div className="form-group my-2 col-12 col-lg-6">
                                 <label htmlFor="watchYear">Watch Production Year</label>
                                 <input
-                                    type="number"
+                                    type="text"
                                     defaultValue={watch.attributes.year}
                                     className={`form-control shadow-none  ${
                                         watch?.attributes.year ? "" : styles.error
@@ -359,7 +359,7 @@ export default function DashBoardForm() {
                                         setWatch({
                                             ...watch, attributes: {
                                                 ...watch.attributes,
-                                                year: e.target.valueAsNumber
+                                                year: e.target.value
                                             }
                                         })
                                     }

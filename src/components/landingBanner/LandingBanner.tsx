@@ -6,7 +6,7 @@ function LandingBanner() {
   let img1 = "../../images/landing1.JPG";
   useEffect(() => {}, []);
 
-  console.log(img1);
+  // console.log(img1);
   return (
     <Carousel controls={false} indicators={true}>
       <Carousel.Item>
