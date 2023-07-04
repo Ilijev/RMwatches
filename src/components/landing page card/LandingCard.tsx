@@ -15,7 +15,7 @@ export default function LandingCard({ img, watchData }: Props) {
         <img
           src={
             watchData.attributes.img
-              ? "" + watchData.attributes.img
+              ?   watchData.attributes.img
               : img
               ? img
               : "https://via.placeholder.com/400x300"
