@@ -122,7 +122,7 @@ export default function DashBoardLanding() {
               <div className="col-12 col-sm-4 col-md-3  col-xl-2 mb-2 mb-sm-0">
                 <img
                   // src="https://via.placeholder.com/400x300"
-                  src={"https://shielded-depths-59676.herokuapp.com" + watch.attributes.img}
+                  src={watch.attributes.img}
                   alt=""
                   className={`${styles.imgStyle} `}
                 />
