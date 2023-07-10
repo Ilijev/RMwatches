@@ -26,20 +26,6 @@ function App() {
   const [showBanner, setShowBanner] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  useEffect(() => {
-    try {
-      fetch("https://shielded-depths-59676.herokuapp.com/api/users/me")
-        .then((response) => {
-          setIsAuthenticated(true);
-        })
-        .catch(() => {
-          setIsAuthenticated(false);
-          sessionStorage.removeItem("jwt");
-        });
-    } catch (error) {
-      console.log(error,"no tken");
-    }
-  }, []);
 
   return (
     <div className="container-fluid p-0 ">
@@ -77,7 +63,7 @@ function App() {
               }
             />
             <Route path="/dashboard/form/:id" element={<DashBoardForm />} />
-            <Route path="/login" element={<LoginForm />} />
+            <Route path="/login" element={<LoginForm setIsAuthenticated={setIsAuthenticated} />} />
             <Route path="*" element={<NotFound />} />
             <Route
               path="/dashboard"
