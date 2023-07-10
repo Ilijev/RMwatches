@@ -99,7 +99,10 @@ export default function DashBoardForm() {
                     headers: {"Content-Type": "application/json"},
                     // Adding body or contents to send
                     body: JSON.stringify({data: watch.attributes})
-                }).then(() => console.log("success"));
+                }).then(() => {
+                    console.log("success");
+                    navigate("/dashboard")
+                });
             })
             .catch((error) => {
                 //handle error
@@ -112,7 +115,6 @@ export default function DashBoardForm() {
                 }).then(() => console.log("success"));
                 console.log(error, ' ERROR !!!')
             })
-            navigate("/dashboard")
 
     }
   
@@ -120,12 +122,9 @@ export default function DashBoardForm() {
         setWatch({
             ...watch, attributes: {
                 ...watch.attributes,
-
                 imgLinks: watch.attributes.imgLinks && Object.values(watch.attributes.imgLinks).filter(str => str != item)
             }
-        })
-       
-
+        });
     }
 
     return (
@@ -448,7 +447,7 @@ export default function DashBoardForm() {
                                     }
                                 />
                             </div>
-                            <div className="form-group my-2 col-12 col-lg-6">
+                            <div id="image-input" className="form-group my-2 col-12 col-lg-6">
                                 <input
                                     type="file"
                                     multiple
@@ -456,8 +455,8 @@ export default function DashBoardForm() {
                                     className="form-control shadow-none -file "
                                 />
                             </div>
-                            {watch.attributes.imgLinks && Object.values(watch.attributes.imgLinks).map(item => (
-                                <div key={new Date().valueOf()} onClick={() => handelImgDelete(item)}
+                            {watch.attributes.imgLinks && Object.values(watch.attributes.imgLinks).map((item,index) => (
+                                <div key={index} onClick={() => handelImgDelete(item)}
                                      className="form-group my-2  col-lg-6">
                                         {
                                             item.includes('blob:') ? 
