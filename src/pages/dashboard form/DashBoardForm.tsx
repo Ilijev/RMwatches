@@ -62,61 +62,71 @@ export default function DashBoardForm() {
         setSelectedFile(prevSelectedFile => [...prevSelectedFile, ...files]);
     };
 
-    const handleSubmit = (e: any) => {
+    const uploadFile = (file: any) => {
+        return new Promise(async (resolve, reject) => {
+            const formData = new FormData();
+            formData.append('files', file);
+
+            try {
+                const response = await fetch("https://shielded-depths-59676.herokuapp.com/api/upload", {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const res = await response.json();
+                resolve(res);
+            } catch (error) {
+                reject(error);
+            }
+        });
+    };
+
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
 
-        const formData = new FormData();
+        const imgLinks = [];
         for (let i = 0; i < selectedFile.length; i++) {
-            formData.append(`files`, selectedFile[i]);
+            try {
+                const res:any = await uploadFile(selectedFile[i]);
+                imgLinks.push(...res.map((img: any) => img.url));
+            } catch (error) {
+                window.alert("Error uploading file!");
+                console.error('Error uploading file:', error);
+            }
         }
 
-        fetch("https://shielded-depths-59676.herokuapp.com/api/upload", {
-            method: 'POST',
-            body: formData
-        })
-            .then((response) => response.json())
-            .then(res => {
-                setSelectedFile([]);
-                let imgLinks = res.map((img: any) => img.url);
-                if(!watch.attributes.img){
-                    watch.attributes.img = imgLinks[0];
-                    watch.attributes.imgLinks = imgLinks;
-                }else{
-                    watch.attributes.imgLinks = imgLinks.concat(watch.attributes.imgLinks);
+        if (imgLinks.length > 0) {
+            setSelectedFile([]);
+
+            if (!watch.attributes.img) {
+                watch.attributes.img = imgLinks[0];
+                watch.attributes.imgLinks = imgLinks;
+            } else {
+                watch.attributes.imgLinks = imgLinks.concat(watch.attributes.imgLinks);
+            }
+
+            setWatch({
+                ...watch,
+                attributes: {
+                    ...watch.attributes,
+                    img: watch.attributes.img,
+                    imgLinks: watch.attributes.imgLinks
                 }
+            });
 
-                setWatch({
-                    ...watch, attributes: {
-                        ...watch.attributes,
-                        img: watch.attributes.img,
-                        imgLinks: watch.attributes.imgLinks
-                    }
-                })
-
-                fetch(`https://shielded-depths-59676.herokuapp.com/api/watches${id ? `/${id}` : ""}`, {
-                    // Adding method type
-                    method: id ? "PUT" : "POST",
-                    headers: {"Content-Type": "application/json"},
-                    // Adding body or contents to send
-                    body: JSON.stringify({data: watch.attributes})
-                }).then(() => {
-                    console.log("success");
-                    navigate("/dashboard")
-                });
-            })
-            .catch((error) => {
-                //handle error
-                fetch(`https://shielded-depths-59676.herokuapp.com/api/watches${id ? `/${id}` : ""}`, {
-                    // Adding method type
-                    method: id ? "PUT" : "POST",
-                    headers: {"Content-Type": "application/json"},
-                    // Adding body or contents to send
-                    body: JSON.stringify({data: watch.attributes})
-                }).then(() => console.log("success"));
-                console.log(error, ' ERROR !!!')
-            })
-
-    }
+            // Call another function here after all uploads are done
+            fetch(`https://shielded-depths-59676.herokuapp.com/api/watches${id ? `/${id}` : ""}`, {
+                // Adding method type
+                method: id ? "PUT" : "POST",
+                headers: {"Content-Type": "application/json"},
+                // Adding body or contents to send
+                body: JSON.stringify({data: watch.attributes})
+            }).then(() => {
+                console.log("success");
+                navigate("/dashboard")
+            });
+        }
+    };
   
     function handelImgDelete(item: string) {
         setWatch({
